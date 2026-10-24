@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b03v2f76jciqa" path="res://assets/legs/leg_types.png" id="16_67c5j"]
 [ext_resource type="Script" uid="uid://bjo1qfr52clig" path="res://design_phase/color_palette.gd" id="18_67c5j"]
 [ext_resource type="Script" uid="uid://bdtfjbel2vmnb" path="res://design_phase/paint_program.gd" id="18_kpbe2"]
+[ext_resource type="Script" uid="uid://g8lh15jie3bg" path="res://design_phase/monster_stats.gd" id="20_u6yyk"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -213,12 +214,16 @@ script = ExtResource("10_cfx73")
 
 [node name="RequestList" type="RichTextLabel" parent="." unique_id=774036110]
 unique_name_in_owner = true
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = 267.0
+offset_top = 9.0
+offset_right = 467.0
+offset_bottom = 308.0
+bbcode_enabled = true
 text = "Request Array"
 fit_content = true
 
 [node name="Monster" type="Node2D" parent="." unique_id=1301185639]
+unique_name_in_owner = true
 position = Vector2(640, 360)
 
 [node name="Antenna" type="AnimatedSprite2D" parent="Monster" unique_id=88876785]
@@ -395,10 +400,10 @@ label_settings = SubResource("LabelSettings_67c5j")
 
 [node name="HistoryLabel" type="Label" parent="Control/Paint" unique_id=1445892309]
 layout_mode = 0
-offset_left = 1016.0
-offset_top = 26.0
-offset_right = 1072.0
-offset_bottom = 49.0
+offset_left = 992.0
+offset_top = 549.0
+offset_right = 1048.0
+offset_bottom = 572.0
 text = "History"
 label_settings = SubResource("LabelSettings_u6yyk")
 
@@ -413,3 +418,138 @@ offset_bottom = 527.0
 bbcode_enabled = true
 text = ">> Line Drawn in Color
 >> Line Drawn in Color"
+
+[node name="MonsterStats" type="Control" parent="Control" unique_id=665761193]
+anchors_preset = 0
+offset_left = 985.0
+offset_top = 30.0
+offset_right = 1025.0
+offset_bottom = 70.0
+script = ExtResource("20_u6yyk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MonsterStats" unique_id=1509734905]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MonsterName" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=1966901095]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Monster Name"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ScareLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=1437217994]
+layout_mode = 2
+text = "Scare:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1048080838]
+layout_mode = 2
+
+[node name="ScareSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=214993857]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 1.0
+value = 1.0
+
+[node name="ScareIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+"
+
+[node name="StealthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=653159452]
+layout_mode = 2
+text = "Stealth:"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1162733613]
+layout_mode = 2
+
+[node name="StealthSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=16607898]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 1.0
+value = 1.0
+
+[node name="StealthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+"
+
+[node name="SpeedLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=483197171]
+layout_mode = 2
+text = "Speed:"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=770073216]
+layout_mode = 2
+
+[node name="SpeedSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1694327405]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 1.0
+value = 1.0
+
+[node name="SpeedIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+"
+
+[node name="StrengthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=1056766877]
+layout_mode = 2
+text = "Strength:"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=495920324]
+layout_mode = 2
+
+[node name="StrengthSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=320219584]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+step = 1.0
+value = 1.0
+
+[node name="StrengthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
+unique_name_in_owner = true
+layout_mode = 2
+text = "+"
+
+[node name="SkillPointLabel" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=679627688]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Points Available: 00"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="ChatsPointsLabel" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=1385075010]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Chats Points Available: 00"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="SaveButton" type="Button" parent="Control" unique_id=588300591]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 0
+offset_left = 1026.0
+offset_top = 430.0
+offset_right = 1176.0
+offset_bottom = 505.0
+text = "Save Creation"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1937870723]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4

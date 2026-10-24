@@ -6,10 +6,12 @@ const MIN_STEP: float = 5.0
 @onready var brush_size : HSlider = %BrushSize
 @onready var brush_size_label : Label = %BrushSizeLabel
 @onready var history_log: RichTextLabel = %HistoryLog
+@onready var monster : Node2D = %Monster
 
 var paint_history : Array = []
 var line_width : float = 7.0
 var stroke : Line2D = null
+var line_offset : Vector2 = Vector2(640.0, 360.0)
 
 func _ready() -> void:
 	brush_size.value = line_width
@@ -20,12 +22,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			stroke = _new_stroke()
-			stroke.add_point(event.position)
+			stroke.add_point(event.position - line_offset)
 		else:
 			stroke = null
 	elif event is InputEventMouseMotion and stroke != null:
-		if stroke.points[-1].distance_to(event.position) > MIN_STEP:
-			stroke.add_point(event.position)
+		if stroke.points[-1].distance_to(event.position - line_offset) > MIN_STEP:
+			stroke.add_point(event.position - line_offset)
 	
 	if event.is_action_pressed("brush_size_increase"):
 		_update_line_width(0.5)
@@ -43,7 +45,7 @@ func _new_stroke() -> Line2D:
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND
 	line.antialiased = true
 	paint_history.append(line)
-	add_child(line)
+	monster.add_child(line)
 	
 	_update_history_log()
 	
@@ -64,11 +66,12 @@ func _undo_action() -> void:
 	else:
 		var last_action = paint_history.pop_back()
 		last_action.queue_free()
-		_update_history_log()
+		#_update_history_log()
 
 func _update_history_log() -> void:
 	var current_log = history_log.text
 	history_log.text = ""
 	for step in paint_history.size():
-		var color_used = paint_history[step].default_color
-		history_log.text = ">> " + str(color_used) + str(paint_history[step]) + "[br]" + current_log
+		var color_used : Color = paint_history[step].default_color
+		var color_hex = color_used.to_html(false)
+		history_log.text = ">> " + "[color=#%s]" % color_hex  + str(paint_history[step]) + "[/color][br]" + current_log
