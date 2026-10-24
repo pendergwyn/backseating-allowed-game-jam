@@ -1,3 +1,415 @@
 [gd_scene format=3 uid="uid://tgffnwc4mxo"]
 
+[ext_resource type="Script" uid="uid://i8st3lv0lidh" path="res://addons/twitcher/twitch_service.gd" id="1_5rww6"]
+[ext_resource type="Script" uid="uid://b27xblk4iqsox" path="res://design_phase/design_phase.gd" id="1_536p1"]
+[ext_resource type="Resource" uid="uid://bnxx1dqdhbr3v" path="res://twitch_oauth_setting.tres" id="2_cfx73"]
+[ext_resource type="Script" uid="uid://b3n3et8mebjcc" path="res://addons/twitcher/auth/twitch_oauth_scopes.gd" id="3_c3fop"]
+[ext_resource type="Resource" uid="uid://djriyyqsdhqr7" path="res://twitch_oauth_token.tres" id="4_536p1"]
+[ext_resource type="Script" uid="uid://cw30cwveway65" path="res://addons/twitcher/generated/twitch_api.gd" id="5_2xkc0"]
+[ext_resource type="Script" uid="uid://iv0mgv0lu8b0" path="res://addons/twitcher/auth/twitch_auth.gd" id="6_uool5"]
+[ext_resource type="Script" uid="uid://bf0wi70haua35" path="res://addons/twitcher/lib/oOuch/oauth.gd" id="7_684p2"]
+[ext_resource type="Script" uid="uid://blnbogtrshw4r" path="res://addons/twitcher/auth/twitch_token_handler.gd" id="8_qtpa5"]
+[ext_resource type="Script" uid="uid://blmhj3j00yk45" path="res://addons/twitcher/eventsub/twitch_eventsub.gd" id="9_yd8fy"]
+[ext_resource type="Script" uid="uid://bmluckfvgm1c2" path="res://addons/twitcher/chat/twitch_command.gd" id="10_c3fop"]
+[ext_resource type="Script" uid="uid://bvuqblq2q8gge" path="res://design_phase/twitch_integration_code.gd" id="10_cfx73"]
+[ext_resource type="Script" uid="uid://cjug64e3433g0" path="res://addons/twitcher/eventsub/twitch_eventsub_config.gd" id="11_2xkc0"]
+[ext_resource type="Texture2D" uid="uid://bwixfsb4x56qa" path="res://assets/antenna/antenna_types.png" id="13_qtpa5"]
+[ext_resource type="Texture2D" uid="uid://dr8g4nsthxup2" path="res://assets/body/body_types.png" id="14_yd8fy"]
+[ext_resource type="Texture2D" uid="uid://ba3srul82xpna" path="res://assets/arms/arm_types.png" id="15_kpbe2"]
+[ext_resource type="Texture2D" uid="uid://b03v2f76jciqa" path="res://assets/legs/leg_types.png" id="16_67c5j"]
+[ext_resource type="Script" uid="uid://bjo1qfr52clig" path="res://design_phase/color_palette.gd" id="18_67c5j"]
+[ext_resource type="Script" uid="uid://bdtfjbel2vmnb" path="res://design_phase/paint_program.gd" id="18_kpbe2"]
+
+[sub_resource type="Resource" id="Resource_rb87g"]
+script = ExtResource("3_c3fop")
+used_scopes = Array[StringName]([&"channel:manage:redemptions", &"channel:read:stream_key", &"user:read:chat", &"user:write:chat", &"channel:manage:polls", &"channel:read:polls", &"chat:edit", &"chat:read"])
+metadata/_custom_type_script = "uid://b3n3et8mebjcc"
+
+[sub_resource type="Resource" id="Resource_qtpa5"]
+script = ExtResource("11_2xkc0")
+type = 9
+condition = {
+&"broadcaster_user_id": "",
+&"user_id": ""
+}
+metadata/_custom_type_script = "uid://cjug64e3433g0"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6yyk"]
+atlas = ExtResource("13_qtpa5")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_536hi"]
+atlas = ExtResource("13_qtpa5")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fapd2"]
+atlas = ExtResource("13_qtpa5")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rb87g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6yyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_536hi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fapd2")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64krs"]
+atlas = ExtResource("14_yd8fy")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2repe"]
+atlas = ExtResource("14_yd8fy")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32fly"]
+atlas = ExtResource("14_yd8fy")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g63iv"]
+atlas = ExtResource("14_yd8fy")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whd7v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64krs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2repe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32fly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g63iv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4synp"]
+atlas = ExtResource("15_kpbe2")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8d5r"]
+atlas = ExtResource("15_kpbe2")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o74c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4synp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8d5r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_011qy"]
+atlas = ExtResource("16_67c5j")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrk46"]
+atlas = ExtResource("16_67c5j")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwrns"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_011qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrk46")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qtpa5"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_67c5j"]
+font_size = 12
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.33333334)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6yyk"]
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.49803922)
+
 [node name="DesignPhase" type="Node2D" unique_id=1509362831]
+script = ExtResource("1_536p1")
+
+[node name="TwitchService" type="Node" parent="." unique_id=1086454407]
+unique_name_in_owner = true
+script = ExtResource("1_5rww6")
+oauth_setting = ExtResource("2_cfx73")
+scopes = SubResource("Resource_rb87g")
+token = ExtResource("4_536p1")
+metadata/_custom_type_script = "uid://i8st3lv0lidh"
+
+[node name="TwitchAPI" type="Node" parent="TwitchService" unique_id=1046132029]
+script = ExtResource("5_2xkc0")
+token = ExtResource("4_536p1")
+oauth_setting = ExtResource("2_cfx73")
+metadata/_custom_type_script = "uid://cw30cwveway65"
+
+[node name="TwitchAuth" type="Node" parent="TwitchService" unique_id=1786755386]
+script = ExtResource("6_uool5")
+oauth_setting = ExtResource("2_cfx73")
+token = ExtResource("4_536p1")
+scopes = SubResource("Resource_rb87g")
+metadata/_custom_type_script = "uid://iv0mgv0lu8b0"
+
+[node name="OAuth" type="Node" parent="TwitchService/TwitchAuth" unique_id=335068696 node_paths=PackedStringArray("token_handler")]
+script = ExtResource("7_684p2")
+oauth_setting = ExtResource("2_cfx73")
+scopes = SubResource("Resource_rb87g")
+token_handler = NodePath("../TokenHandler")
+
+[node name="TokenHandler" type="Node" parent="TwitchService/TwitchAuth" unique_id=139150466]
+script = ExtResource("8_qtpa5")
+oauth_setting = ExtResource("2_cfx73")
+token = ExtResource("4_536p1")
+
+[node name="TwitchEventsub" type="Node" parent="TwitchService" unique_id=1471735202 node_paths=PackedStringArray("api")]
+script = ExtResource("9_yd8fy")
+api = NodePath("../TwitchAPI")
+_subscriptions = Array[ExtResource("11_2xkc0")]([SubResource("Resource_qtpa5")])
+use_test_server = true
+metadata/_custom_type_script = "uid://blmhj3j00yk45"
+
+[node name="RequestCommand" type="Node" parent="TwitchService" unique_id=1594289333 node_paths=PackedStringArray("eventsub")]
+unique_name_in_owner = true
+script = ExtResource("10_c3fop")
+args_min = 1
+args_max = 1
+command = "request"
+description = "Submit request."
+user_cooldown = 5.0
+eventsub = NodePath("../TwitchEventsub")
+metadata/_custom_type_script = "uid://bmluckfvgm1c2"
+
+[node name="TwitchIntegrationCode" type="Node" parent="." unique_id=167287179]
+script = ExtResource("10_cfx73")
+
+[node name="RequestList" type="RichTextLabel" parent="." unique_id=774036110]
+unique_name_in_owner = true
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "Request Array"
+fit_content = true
+
+[node name="Monster" type="Node2D" parent="." unique_id=1301185639]
+position = Vector2(640, 360)
+
+[node name="Antenna" type="AnimatedSprite2D" parent="Monster" unique_id=88876785]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_rb87g")
+
+[node name="Body" type="AnimatedSprite2D" parent="Monster" unique_id=1742635299]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_whd7v")
+
+[node name="Arms" type="AnimatedSprite2D" parent="Monster" unique_id=1110047087]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_7o74c")
+
+[node name="Legs" type="AnimatedSprite2D" parent="Monster" unique_id=2145434995]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_mwrns")
+
+[node name="Control" type="Control" parent="." unique_id=1283857538]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BodyPartButtons" type="VBoxContainer" parent="Control" unique_id=199241138]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 340.0
+offset_right = 74.0
+offset_bottom = 476.0
+grow_vertical = 2
+
+[node name="AntennaButton" type="Button" parent="Control/BodyPartButtons" unique_id=525173539]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "Antenna"
+
+[node name="BodyButton" type="Button" parent="Control/BodyPartButtons" unique_id=1147911709]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "Body"
+
+[node name="ArmsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1952080581]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "Arms"
+
+[node name="LegsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1081249359]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "Legs
+"
+
+[node name="SwapBodyPartTypes" type="HBoxContainer" parent="Control" unique_id=1496603388]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 393.0
+offset_top = 627.0
+offset_right = 877.0
+offset_bottom = 702.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviousButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=1191942289]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "PREV"
+
+[node name="NextButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=772916141]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(240, 75)
+layout_mode = 2
+text = "NEXT
+"
+
+[node name="Label" type="Label" parent="Control" unique_id=1273546801]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 494.0
+offset_top = 45.0
+offset_right = 744.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "Currently Editing: [Part]"
+label_settings = SubResource("LabelSettings_qtpa5")
+horizontal_alignment = 1
+
+[node name="Paint" type="Control" parent="Control" unique_id=1001168213]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_kpbe2")
+
+[node name="ColorPalette" type="VBoxContainer" parent="Control/Paint" unique_id=260839128]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 108.0
+script = ExtResource("18_67c5j")
+
+[node name="SelectedColor" type="ColorRect" parent="Control/Paint/ColorPalette" unique_id=102874552]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=964715095]
+layout_mode = 2
+
+[node name="RedColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer" unique_id=47399559]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+color = Color(0.8246536, 0.17506364, 9.62615e-08, 1)
+
+[node name="YellowColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer" unique_id=225998242]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+color = Color(1, 0.8000001, 0, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=1486036321]
+layout_mode = 2
+
+[node name="WhiteColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1484931818]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+
+[node name="BlackColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1888892879]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BrushSize" type="HSlider" parent="Control/Paint" unique_id=374328381]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 128.0
+offset_top = 13.0
+offset_right = 248.0
+offset_bottom = 29.0
+min_value = 2.5
+max_value = 32.0
+step = 0.5
+value = 7.0
+
+[node name="BrushSizeLabel" type="Label" parent="Control/Paint/BrushSize" unique_id=945027173]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 100.0
+offset_bottom = 38.0
+text = "Brush Size: 0.0"
+label_settings = SubResource("LabelSettings_67c5j")
+
+[node name="HistoryLabel" type="Label" parent="Control/Paint" unique_id=1445892309]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 26.0
+offset_right = 1072.0
+offset_bottom = 49.0
+text = "History"
+label_settings = SubResource("LabelSettings_u6yyk")
+
+[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/HistoryLabel" unique_id=703850047]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 500)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 27.0
+offset_right = 202.0
+offset_bottom = 527.0
+bbcode_enabled = true
+text = ">> Line Drawn in Color
+>> Line Drawn in Color"
