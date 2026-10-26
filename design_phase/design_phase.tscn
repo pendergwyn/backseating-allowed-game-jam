@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b03v2f76jciqa" path="res://assets/legs/leg_types.png" id="16_67c5j"]
 [ext_resource type="Script" uid="uid://bjo1qfr52clig" path="res://design_phase/color_palette.gd" id="18_67c5j"]
 [ext_resource type="Script" uid="uid://bdtfjbel2vmnb" path="res://design_phase/paint_program.gd" id="18_kpbe2"]
+[ext_resource type="FontFile" uid="uid://dep1bc7jhi86h" path="res://assets/fonts/Peaberry-Base.otf" id="20_32fly"]
 [ext_resource type="Script" uid="uid://g8lh15jie3bg" path="res://design_phase/monster_stats.gd" id="20_u6yyk"]
 [ext_resource type="Texture2D" uid="uid://b3rtv2myw3pjo" path="res://assets/background/background_design_phase.png" id="21_536hi"]
 [ext_resource type="Texture2D" uid="uid://csnqwxap04078" path="res://assets/ui/progress_bar_background.png" id="22_64krs"]
@@ -254,23 +255,30 @@ bbcode_enabled = true
 text = "Request Array"
 fit_content = true
 
-[node name="Monster" type="Node2D" parent="." unique_id=1301185639]
-unique_name_in_owner = true
-position = Vector2(640, 360)
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1604855503]
+offset_left = 390.0
+offset_top = 10.0
+offset_right = 890.0
+offset_bottom = 610.0
+theme = ExtResource("24_2repe")
 
-[node name="Antenna" type="AnimatedSprite2D" parent="Monster" unique_id=88876785]
+[node name="Monster" type="Node2D" parent="PanelContainer" unique_id=1301185639]
+unique_name_in_owner = true
+position = Vector2(250, 325)
+
+[node name="Antenna" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=88876785]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rb87g")
 
-[node name="Body" type="AnimatedSprite2D" parent="Monster" unique_id=1742635299]
+[node name="Body" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=1742635299]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_whd7v")
 
-[node name="Arms" type="AnimatedSprite2D" parent="Monster" unique_id=1110047087]
+[node name="Arms" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=1110047087]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_7o74c")
 
-[node name="Legs" type="AnimatedSprite2D" parent="Monster" unique_id=2145434995]
+[node name="Legs" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=2145434995]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_mwrns")
 
@@ -342,14 +350,15 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
-text = "PREV"
+theme_override_fonts/font = ExtResource("20_32fly")
+text = "Previous"
 
 [node name="NextButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=772916141]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
-text = "NEXT
+text = "Next
 "
 
 [node name="Label" type="Label" parent="Control" unique_id=1273546801]
@@ -458,39 +467,49 @@ bbcode_enabled = true
 text = ">> Line Drawn in Color
 >> Line Drawn in Color"
 
-[node name="MonsterStats" type="Control" parent="Control" unique_id=665761193]
-anchors_preset = 0
+[node name="MonsterStats" type="PanelContainer" parent="Control" unique_id=2088591500]
+layout_mode = 0
 offset_left = 985.0
 offset_top = 30.0
-offset_right = 1025.0
-offset_bottom = 70.0
+offset_right = 1235.0
+offset_bottom = 359.0
+theme = ExtResource("24_2repe")
 script = ExtResource("20_u6yyk")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MonsterStats" unique_id=1509734905]
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MarginContainer" type="MarginContainer" parent="Control/MonsterStats" unique_id=1640992757]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="MonsterName" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=1966901095]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MonsterStats/MarginContainer" unique_id=1509734905]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = ExtResource("24_2repe")
+
+[node name="MonsterName" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1966901095]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("24_2repe")
+theme_override_font_sizes/normal_font_size = 24
 text = "Monster Name"
 fit_content = true
 horizontal_alignment = 1
 
-[node name="ScareLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=1437217994]
+[node name="ScareLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1437217994]
 layout_mode = 2
-text = "Scare:"
+text = "Scare"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1048080838]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1048080838]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=1075358493]
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1075358493]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="ScareSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer/SkillMeterBackground" unique_id=663012294]
+[node name="ScareSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer/SkillMeterBackground" unique_id=663012294]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -499,7 +518,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_whd7v")
 
-[node name="ScareIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
+[node name="ScareIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -508,18 +527,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="StealthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=653159452]
+[node name="StealthLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=653159452]
 layout_mode = 2
-text = "Stealth:"
+text = "Stealth"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1162733613]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1162733613]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=538219762]
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=538219762]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="StealthSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2/SkillMeterBackground" unique_id=1351611951]
+[node name="StealthSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2/SkillMeterBackground" unique_id=1351611951]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -528,7 +548,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_nqa1g")
 
-[node name="StealthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
+[node name="StealthIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -537,18 +557,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="SpeedLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=483197171]
+[node name="SpeedLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=483197171]
 layout_mode = 2
-text = "Speed:"
+text = "Speed"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=770073216]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=770073216]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1740796963]
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1740796963]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="SpeedSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3/SkillMeterBackground" unique_id=163550613]
+[node name="SpeedSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3/SkillMeterBackground" unique_id=163550613]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -557,7 +578,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_2cilq")
 
-[node name="SpeedIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
+[node name="SpeedIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -566,18 +587,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="StrengthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=1056766877]
+[node name="StrengthLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1056766877]
 layout_mode = 2
-text = "Strength:"
+text = "Strength"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=495920324]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=495920324]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=1495204593]
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1495204593]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="StrengthSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4/SkillMeterBackground" unique_id=629206261]
+[node name="StrengthSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4/SkillMeterBackground" unique_id=629206261]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -586,7 +608,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_tarkt")
 
-[node name="StrengthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
+[node name="StrengthIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -594,17 +616,19 @@ layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="SkillPointLabel" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=679627688]
+[node name="SkillPointLabel" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=679627688]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 10
 text = "Points Available: 00"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="ChatsPointsLabel" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=1385075010]
+[node name="ChatsPointsLabel" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1385075010]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Chats Points Available: 00"
+size_flags_vertical = 8
+text = "Chat's Points Available: 00"
 fit_content = true
 horizontal_alignment = 2
 

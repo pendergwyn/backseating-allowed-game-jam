@@ -1,6 +1,42 @@
 [gd_resource type="Theme" format=3 uid="uid://coa8lsg52fdv4"]
 
 [ext_resource type="Texture2D" uid="uid://becou64y6qgkn" path="res://assets/ui/button.png" id="1_fmcdn"]
+[ext_resource type="Texture2D" uid="uid://d31ew8ecevfsf" path="res://assets/ui/button-sheet.png" id="1_q4r4s"]
+[ext_resource type="Texture2D" uid="uid://be8b4wgc342kf" path="res://assets/ui/container.png" id="3_pxcak"]
+[ext_resource type="FontFile" uid="uid://dep1bc7jhi86h" path="res://assets/fonts/Peaberry-Base.otf" id="4_l64jj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqd14"]
+atlas = ExtResource("1_q4r4s")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qf8u0"]
+texture = SubResource("AtlasTexture_fqd14")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss701"]
+atlas = ExtResource("1_q4r4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qc5yf"]
+texture = SubResource("AtlasTexture_ss701")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gli45"]
+atlas = ExtResource("1_q4r4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_op5sq"]
+texture = SubResource("AtlasTexture_gli45")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2repe"]
 texture = ExtResource("1_fmcdn")
@@ -9,5 +45,30 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l64jj"]
+atlas = ExtResource("1_q4r4s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pxcak"]
+texture = SubResource("AtlasTexture_l64jj")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ig73d"]
+texture = ExtResource("3_pxcak")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [resource]
+default_font = ExtResource("4_l64jj")
+Button/fonts/font = ExtResource("4_l64jj")
+Button/styles/disabled = SubResource("StyleBoxTexture_qf8u0")
+Button/styles/focus = SubResource("StyleBoxTexture_qc5yf")
+Button/styles/hover = SubResource("StyleBoxTexture_op5sq")
 Button/styles/normal = SubResource("StyleBoxTexture_2repe")
+Button/styles/pressed = SubResource("StyleBoxTexture_pxcak")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ig73d")
