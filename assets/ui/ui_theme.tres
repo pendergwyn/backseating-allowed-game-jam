@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://becou64y6qgkn" path="res://assets/ui/button.png" id="1_fmcdn"]
 [ext_resource type="Texture2D" uid="uid://d31ew8ecevfsf" path="res://assets/ui/button-sheet.png" id="1_q4r4s"]
 [ext_resource type="Texture2D" uid="uid://be8b4wgc342kf" path="res://assets/ui/container.png" id="3_pxcak"]
+[ext_resource type="Texture2D" uid="uid://dr4io6get7gkp" path="res://assets/ui/scroll_bar_back.png" id="4_2t3ff"]
 [ext_resource type="FontFile" uid="uid://dep1bc7jhi86h" path="res://assets/fonts/Peaberry-Base.otf" id="4_l64jj"]
+[ext_resource type="Texture2D" uid="uid://cdudx47hl3hvj" path="res://assets/ui/scroll_bar_grab.png" id="4_x27uq"]
+[ext_resource type="Texture2D" uid="uid://dyocrqdqtfxlu" path="res://assets/ui/scroll_bar_fill.png" id="6_k4cr1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqd14"]
 atlas = ExtResource("1_q4r4s")
@@ -56,6 +59,41 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x27uq"]
+texture = ExtResource("4_x27uq")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_32fly"]
+texture = ExtResource("4_2t3ff")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k4cr1"]
+texture = ExtResource("6_k4cr1")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjarc"]
+texture = ExtResource("6_k4cr1")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2k3a"]
+texture = ExtResource("4_2t3ff")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ig73d"]
 texture = ExtResource("3_pxcak")
 texture_margin_left = 8.0
@@ -71,4 +109,10 @@ Button/styles/focus = SubResource("StyleBoxTexture_qc5yf")
 Button/styles/hover = SubResource("StyleBoxTexture_op5sq")
 Button/styles/normal = SubResource("StyleBoxTexture_2repe")
 Button/styles/pressed = SubResource("StyleBoxTexture_pxcak")
+HScrollBar/styles/grabber = SubResource("StyleBoxTexture_x27uq")
+HScrollBar/styles/scroll = SubResource("StyleBoxTexture_32fly")
+HSlider/icons/grabber = ExtResource("4_x27uq")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_k4cr1")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_jjarc")
+HSlider/styles/slider = SubResource("StyleBoxTexture_g2k3a")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ig73d")
