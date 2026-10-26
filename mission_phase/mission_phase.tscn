@@ -1,0 +1,318 @@
+[gd_scene format=3 uid="uid://bin3u2af4g0m4"]
+
+[ext_resource type="Texture2D" uid="uid://b2aia2x4sn0ll" path="res://assets/mission_phase/nodes/movement_node.png" id="1_6v0wu"]
+[ext_resource type="Script" uid="uid://jd8ud2fr75xp" path="res://mission_phase/mission_phase.gd" id="1_nt83r"]
+[ext_resource type="PackedScene" uid="uid://cihhw6wtlsgr6" path="res://mission_phase/player_monster.tscn" id="2_ypsh4"]
+[ext_resource type="PackedScene" uid="uid://civjdtg5jvd2d" path="res://mission_phase/tripod_camera.tscn" id="4_nt83r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb87g"]
+atlas = ExtResource("1_6v0wu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whd7v"]
+atlas = ExtResource("1_6v0wu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o74c"]
+atlas = ExtResource("1_6v0wu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwrns"]
+atlas = ExtResource("1_6v0wu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rb87g"]
+
+[node name="MissionPhase" type="Node2D" unique_id=1866083887]
+script = ExtResource("1_nt83r")
+
+[node name="MovementNodes" type="Control" parent="." unique_id=2115854973]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Node" type="TextureButton" parent="MovementNodes" unique_id=567497119 groups=["board_space"]]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node2" type="TextureButton" parent="MovementNodes" unique_id=769212058 groups=["board_space"]]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 160.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node3" type="TextureButton" parent="MovementNodes" unique_id=286978678 groups=["board_space"]]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 160.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node4" type="TextureButton" parent="MovementNodes" unique_id=311893851 groups=["board_space"]]
+layout_mode = 0
+offset_left = 128.0
+offset_top = -128.0
+offset_right = 160.0
+offset_bottom = -96.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node5" type="TextureButton" parent="MovementNodes" unique_id=1341516249 groups=["board_space"]]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -128.0
+offset_right = 288.0
+offset_bottom = -96.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node6" type="TextureButton" parent="MovementNodes" unique_id=471653211 groups=["board_space"]]
+layout_mode = 0
+offset_left = 384.0
+offset_top = -128.0
+offset_right = 416.0
+offset_bottom = -96.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node7" type="TextureButton" parent="MovementNodes" unique_id=1484662567 groups=["board_space"]]
+layout_mode = 0
+offset_left = 384.0
+offset_right = 416.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node8" type="TextureButton" parent="MovementNodes" unique_id=161519853 groups=["board_space"]]
+layout_mode = 0
+offset_left = 512.0
+offset_right = 544.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node9" type="TextureButton" parent="MovementNodes" unique_id=1618107268 groups=["board_space"]]
+layout_mode = 0
+offset_left = 512.0
+offset_top = -128.0
+offset_right = 544.0
+offset_bottom = -96.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node10" type="TextureButton" parent="MovementNodes" unique_id=1022984778 groups=["board_space"]]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 128.0
+offset_right = 288.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node11" type="TextureButton" parent="MovementNodes" unique_id=694926330 groups=["board_space"]]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node12" type="TextureButton" parent="MovementNodes" unique_id=1150794568 groups=["board_space"]]
+layout_mode = 0
+offset_left = 640.0
+offset_right = 672.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node13" type="TextureButton" parent="MovementNodes" unique_id=1870687534 groups=["board_space"]]
+layout_mode = 0
+offset_left = 768.0
+offset_right = 800.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node14" type="TextureButton" parent="MovementNodes" unique_id=737883083 groups=["board_space"]]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 128.0
+offset_right = 672.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node15" type="TextureButton" parent="MovementNodes" unique_id=1089026395 groups=["board_space"]]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 128.0
+offset_right = 800.0
+offset_bottom = 160.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node16" type="TextureButton" parent="MovementNodes" unique_id=321661399 groups=["board_space"]]
+layout_mode = 0
+offset_left = 896.0
+offset_right = 928.0
+offset_bottom = 32.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="Node17" type="TextureButton" parent="MovementNodes" unique_id=2132570466 groups=["board_space"]]
+layout_mode = 0
+offset_left = 896.0
+offset_top = -128.0
+offset_right = 928.0
+offset_bottom = -96.0
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_hover = SubResource("AtlasTexture_whd7v")
+texture_disabled = SubResource("AtlasTexture_7o74c")
+texture_focused = SubResource("AtlasTexture_mwrns")
+
+[node name="PlayerMonster" parent="." unique_id=937397419 instance=ExtResource("2_ypsh4")]
+unique_name_in_owner = true
+position = Vector2(16, 16)
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=457963698]
+
+[node name="CameraSnapBackButton" type="Button" parent="GameUI" unique_id=191116179]
+unique_name_in_owner = true
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 212.0
+offset_bottom = 56.0
+text = "Camera: Back to Player"
+
+[node name="DetectionBar" type="ProgressBar" parent="GameUI" unique_id=646578942]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -57.0
+offset_right = 281.0
+offset_bottom = -25.0
+grow_vertical = 0
+max_value = 20.0
+step = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="GameUI" unique_id=1534461777]
+offset_left = 32.0
+offset_top = 640.0
+offset_right = 112.0
+offset_bottom = 663.0
+text = "Detection:"
+label_settings = SubResource("LabelSettings_rb87g")
+
+[node name="Control" type="Control" parent="GameUI" unique_id=2110150042]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -40.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayerActionsContainer" type="HBoxContainer" parent="GameUI/Control" unique_id=1886000779]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_right = 113.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="MoveButton" type="Button" parent="GameUI/Control/PlayerActionsContainer" unique_id=128606070]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Move"
+
+[node name="HideButton" type="Button" parent="GameUI/Control/PlayerActionsContainer" unique_id=79804220]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Hide"
+
+[node name="GatherButton" type="Button" parent="GameUI/Control/PlayerActionsContainer" unique_id=1195172743]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Gather"
+
+[node name="ThrowButton" type="Button" parent="GameUI/Control/PlayerActionsContainer" unique_id=10860382]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Throw"
+
+[node name="CurrentTurnLabel" type="RichTextLabel" parent="GameUI" unique_id=261611241]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(216, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -241.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 65.0
+grow_horizontal = 0
+text = "Current Turn: "
+fit_content = true
+
+[node name="GameBoard" type="Node2D" parent="." unique_id=167701672]
+
+[node name="TripodCamera" parent="GameBoard" unique_id=1530200637 groups=["enemy"] instance=ExtResource("4_nt83r")]
+position = Vector2(272, 0)
+
+[node name="TripodCamera2" parent="GameBoard" unique_id=1823925349 groups=["enemy"] instance=ExtResource("4_nt83r")]
+position = Vector2(528, 128)
+
+[node name="TripodCamera3" parent="GameBoard" unique_id=243808533 groups=["enemy"] instance=ExtResource("4_nt83r")]
+position = Vector2(784, -128)
+
+[connection signal="pressed" from="GameUI/Control/PlayerActionsContainer/MoveButton" to="." method="_on_move_button_pressed"]

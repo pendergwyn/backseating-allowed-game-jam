@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://civjdtg5jvd2d"]
+
+[ext_resource type="Texture2D" uid="uid://bkyviil4uihte" path="res://assets/mission_phase/security_camera/camera.png" id="1_08dtd"]
+[ext_resource type="Script" uid="uid://b0734ty7a77rb" path="res://mission_phase/tripod_camera.gd" id="2_km8la"]
+
+[node name="TripodCamera" type="Sprite2D" unique_id=1530200637]
+texture = ExtResource("1_08dtd")
+script = ExtResource("2_km8la")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2012564761]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+collision_layer = 2
+
+[node name="VisionCone" type="CollisionPolygon2D" parent="Area2D" unique_id=1091193550]
+unique_name_in_owner = true
+polygon = PackedVector2Array(0, 0, 32, 176, 24, 180, 16, 184, 8, 184, 0, 184, -8, 184, -16, 184, -24, 180, -32, 176)

@@ -20,6 +20,10 @@
 [ext_resource type="Script" uid="uid://bjo1qfr52clig" path="res://design_phase/color_palette.gd" id="18_67c5j"]
 [ext_resource type="Script" uid="uid://bdtfjbel2vmnb" path="res://design_phase/paint_program.gd" id="18_kpbe2"]
 [ext_resource type="Script" uid="uid://g8lh15jie3bg" path="res://design_phase/monster_stats.gd" id="20_u6yyk"]
+[ext_resource type="Texture2D" uid="uid://b3rtv2myw3pjo" path="res://assets/background/background_design_phase.png" id="21_536hi"]
+[ext_resource type="Texture2D" uid="uid://csnqwxap04078" path="res://assets/ui/progress_bar_background.png" id="22_64krs"]
+[ext_resource type="Texture2D" uid="uid://cdmrwyqb7e7bj" path="res://assets/ui/progress_bar_fill.png" id="23_2repe"]
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="24_2repe"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -156,8 +160,36 @@ shadow_color = Color(0, 0, 0, 0.33333334)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.49803922)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_whd7v"]
+atlas = ExtResource("23_2repe")
+region = Rect2(0, 0, 144, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqa1g"]
+atlas = ExtResource("23_2repe")
+region = Rect2(0, 0, 144, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cilq"]
+atlas = ExtResource("23_2repe")
+region = Rect2(0, 0, 144, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tarkt"]
+atlas = ExtResource("23_2repe")
+region = Rect2(0, 0, 144, 16)
+
 [node name="DesignPhase" type="Node2D" unique_id=1509362831]
 script = ExtResource("1_536p1")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1176895623]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(64, 64)
+autoscroll = Vector2(-20, -20)
+repeat_times = 39
+follow_viewport = false
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1115447084]
+position = Vector2(256, 256)
+texture = ExtResource("21_536hi")
 
 [node name="TwitchService" type="Node" parent="." unique_id=1086454407]
 unique_name_in_owner = true
@@ -266,24 +298,28 @@ grow_vertical = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "Antenna"
 
 [node name="BodyButton" type="Button" parent="Control/BodyPartButtons" unique_id=1147911709]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "Body"
 
 [node name="ArmsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1952080581]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "Arms"
 
 [node name="LegsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1081249359]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "Legs
 "
 
@@ -305,12 +341,14 @@ grow_vertical = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "PREV"
 
 [node name="NextButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=772916141]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "NEXT
 "
 
@@ -399,6 +437,7 @@ text = "Brush Size: 0.0"
 label_settings = SubResource("LabelSettings_67c5j")
 
 [node name="HistoryLabel" type="Label" parent="Control/Paint" unique_id=1445892309]
+visible = false
 layout_mode = 0
 offset_left = 992.0
 offset_top = 549.0
@@ -447,18 +486,26 @@ text = "Scare:"
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1048080838]
 layout_mode = 2
 
-[node name="ScareSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=214993857]
-unique_name_in_owner = true
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=1075358493]
 layout_mode = 2
-size_flags_horizontal = 3
-max_value = 10.0
-step = 1.0
-value = 1.0
+texture = ExtResource("22_64krs")
+
+[node name="ScareSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer/SkillMeterBackground" unique_id=663012294]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 24.0
+texture = SubResource("AtlasTexture_whd7v")
 
 [node name="ScareIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("24_2repe")
 text = "+"
 
 [node name="StealthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=653159452]
@@ -468,18 +515,26 @@ text = "Stealth:"
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=1162733613]
 layout_mode = 2
 
-[node name="StealthSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=16607898]
-unique_name_in_owner = true
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=538219762]
 layout_mode = 2
-size_flags_horizontal = 3
-max_value = 10.0
-step = 1.0
-value = 1.0
+texture = ExtResource("22_64krs")
+
+[node name="StealthSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2/SkillMeterBackground" unique_id=1351611951]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 24.0
+texture = SubResource("AtlasTexture_nqa1g")
 
 [node name="StealthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("24_2repe")
 text = "+"
 
 [node name="SpeedLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=483197171]
@@ -489,18 +544,26 @@ text = "Speed:"
 [node name="HBoxContainer3" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=770073216]
 layout_mode = 2
 
-[node name="SpeedSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1694327405]
-unique_name_in_owner = true
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1740796963]
 layout_mode = 2
-size_flags_horizontal = 3
-max_value = 10.0
-step = 1.0
-value = 1.0
+texture = ExtResource("22_64krs")
+
+[node name="SpeedSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3/SkillMeterBackground" unique_id=163550613]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 24.0
+texture = SubResource("AtlasTexture_2cilq")
 
 [node name="SpeedIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 8
+theme = ExtResource("24_2repe")
 text = "+"
 
 [node name="StrengthLabel" type="Label" parent="Control/MonsterStats/VBoxContainer" unique_id=1056766877]
@@ -510,17 +573,25 @@ text = "Strength:"
 [node name="HBoxContainer4" type="HBoxContainer" parent="Control/MonsterStats/VBoxContainer" unique_id=495920324]
 layout_mode = 2
 
-[node name="StrengthSkillMeter" type="ProgressBar" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=320219584]
-unique_name_in_owner = true
+[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=1495204593]
 layout_mode = 2
-size_flags_horizontal = 3
-max_value = 10.0
-step = 1.0
-value = 1.0
+texture = ExtResource("22_64krs")
+
+[node name="StrengthSkillMeter" type="TextureRect" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4/SkillMeterBackground" unique_id=629206261]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 24.0
+texture = SubResource("AtlasTexture_tarkt")
 
 [node name="StrengthIncreaseButton" type="Button" parent="Control/MonsterStats/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
+theme = ExtResource("24_2repe")
 text = "+"
 
 [node name="SkillPointLabel" type="RichTextLabel" parent="Control/MonsterStats/VBoxContainer" unique_id=679627688]
@@ -545,11 +616,13 @@ offset_left = 1026.0
 offset_top = 430.0
 offset_right = 1176.0
 offset_bottom = 505.0
+theme = ExtResource("24_2repe")
 text = "Save Creation"
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1937870723]
 unique_name_in_owner = true
 disable_3d = true
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 500)
 render_target_update_mode = 4

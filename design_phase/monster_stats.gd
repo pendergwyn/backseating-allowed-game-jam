@@ -2,13 +2,13 @@ extends Control
 class_name MonsterStats
 
 @onready var monster_name: RichTextLabel = %MonsterName
-@onready var scare_skill_meter: ProgressBar = %ScareSkillMeter
+@onready var scare_skill_meter: TextureRect = %ScareSkillMeter
 @onready var scare_increase_button: Button = %ScareIncreaseButton
-@onready var stealth_skill_meter: ProgressBar = %StealthSkillMeter
+@onready var stealth_skill_meter: TextureRect = %StealthSkillMeter
 @onready var stealth_increase_button: Button = %StealthIncreaseButton
-@onready var speed_skill_meter: ProgressBar = %SpeedSkillMeter
+@onready var speed_skill_meter: TextureRect = %SpeedSkillMeter
 @onready var speed_increase_button: Button = %SpeedIncreaseButton
-@onready var strength_skill_meter: ProgressBar = %StrengthSkillMeter
+@onready var strength_skill_meter: TextureRect = %StrengthSkillMeter
 @onready var strength_increase_button: Button = %StrengthIncreaseButton
 @onready var skill_point_label: RichTextLabel = %SkillPointLabel
 @onready var chats_points_label: RichTextLabel = %ChatsPointsLabel
@@ -52,16 +52,16 @@ func _increase_stat(stat : String, who : String) -> void:
 	match stat:
 		"scare":
 			PlayerStats.scare_stat += 1
-			scare_skill_meter.value = PlayerStats.scare_stat
+			scare_skill_meter.texture.region = Rect2((PlayerStats.scare_stat * 144), 0.0, 144.0, 16.0)
 		"stealth":
 			PlayerStats.stealth_stat += 1
-			stealth_skill_meter.value = PlayerStats.stealth_stat
+			stealth_skill_meter.texture.region = Rect2((PlayerStats.stealth_stat * 144), 0.0, 144.0, 16.0)
 		"speed":
 			PlayerStats.speed_stat += 1
-			speed_skill_meter.value = PlayerStats.speed_stat
+			speed_skill_meter.texture.region  = Rect2((PlayerStats.speed_stat * 144), 0.0, 144.0, 16.0)
 		"strength":
 			PlayerStats.strength_stat += 1
-			strength_skill_meter.value = PlayerStats.strength_stat
+			strength_skill_meter.texture.region  = Rect2((PlayerStats.strength_stat * 144), 0.0, 144.0, 16.0)
 	
 	if who == "player":
 		PlayerStats.stat_points -= 1

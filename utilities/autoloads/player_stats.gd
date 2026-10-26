@@ -2,11 +2,11 @@ extends Node
 
 #region Monster Stats and Info
 
-var max_stat_level : int = 10
-var scare_stat : int = 1
-var stealth_stat : int = 1
-var speed_stat : int = 1
-var strength_stat : int = 1
+var max_stat_level : int = 12
+var scare_stat : int = 0
+var stealth_stat : int = 0
+var speed_stat : int = 0
+var strength_stat : int = 0
 var discovered_level : int = 0
 var max_discovered : int = 20
 
