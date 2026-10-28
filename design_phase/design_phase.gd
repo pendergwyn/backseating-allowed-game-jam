@@ -25,6 +25,7 @@ var current_state : State = State.ANTENNA
 @onready var save_button : Button = %SaveButton
 @onready var monster_design : Node2D = %Monster
 @onready var subviewport : SubViewport = %SubViewport
+@onready var ui_click: AudioStreamPlayer2D = %UIClick
 
 var request_deck : Array[PackedStringArray] = []
 var current_part : AnimatedSprite2D
@@ -59,6 +60,7 @@ func _process(delta) -> void:
 			
 
 func _previous_button_pressed() -> void:
+	_play_click_sound()
 	total_frames = current_part.sprite_frames.get_frame_count("default")
 	if current_part.frame == 0:
 		current_part.frame = (total_frames - 1)
@@ -66,6 +68,7 @@ func _previous_button_pressed() -> void:
 		current_part.frame -= 1
 
 func _next_button_pressed() -> void:
+	_play_click_sound()
 	total_frames = current_part.sprite_frames.get_frame_count("default")
 	if current_part.frame >= (total_frames-1):
 		current_part.frame = 0
@@ -73,6 +76,7 @@ func _next_button_pressed() -> void:
 		current_part.frame += 1
 
 func _save_button_pressed() -> void:
+	_play_click_sound()
 	monster_design.reparent(subviewport)
 	monster_design.position = Vector2(250.0, 250.0)
 	await RenderingServer.frame_post_draw
@@ -81,17 +85,24 @@ func _save_button_pressed() -> void:
 	monster_design.position = Vector2(640.0, 360.0)
 
 func _antenna_button_pressed() ->  void:
+	_play_click_sound()
 	current_state = State.ANTENNA
 
 func _body_button_pressed() -> void:
+	_play_click_sound()
 	current_state = State.BODY
 
 func _arms_button_pressed() -> void:
+	_play_click_sound()
 	current_state = State.ARMS
 
 func _legs_button_pressed() -> void:
+	_play_click_sound()
 	current_state = State.LEGS
 
 func _on_request(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
 	request_deck.append(_args)
 	print("Request Submitted: " + str(_args))
+
+func _play_click_sound() -> void:
+	ui_click.play()

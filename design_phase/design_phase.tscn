@@ -31,6 +31,8 @@
 [ext_resource type="Resource" uid="uid://cofakta3m3c0v" path="res://utilities/resources/color_1.tres" id="24_lrk46"]
 [ext_resource type="Texture2D" uid="uid://c6fjovdtv1h81" path="res://assets/ui/paint_cursor.png" id="26_g63iv"]
 [ext_resource type="Resource" uid="uid://bfw53kihtx57r" path="res://utilities/resources/color_3.tres" id="26_nqa1g"]
+[ext_resource type="AudioStream" uid="uid://bqm2vse417osu" path="res://audio/sfx/click1.ogg" id="32_2cilq"]
+[ext_resource type="AudioStream" uid="uid://o11uwpgwuwb" path="res://audio/sfx/rollover3.ogg" id="33_tarkt"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -732,5 +734,18 @@ handle_input_locally = false
 size = Vector2i(500, 500)
 render_target_update_mode = 4
 
+[node name="Audio" type="Node2D" parent="." unique_id=451518672]
+
+[node name="UIClick" type="AudioStreamPlayer2D" parent="Audio" unique_id=1876310593]
+unique_name_in_owner = true
+stream = ExtResource("32_2cilq")
+bus = &"SFX"
+
+[node name="UISlider" type="AudioStreamPlayer2D" parent="Audio" unique_id=552680493]
+unique_name_in_owner = true
+stream = ExtResource("33_tarkt")
+
 [connection signal="mouse_entered" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_exited"]
+[connection signal="drag_ended" from="Control/Paint/BrushSize" to="Control/Paint" method="_on_brush_size_drag_ended"]
+[connection signal="value_changed" from="Control/Paint/BrushSize" to="Control/Paint" method="_on_brush_size_value_changed"]

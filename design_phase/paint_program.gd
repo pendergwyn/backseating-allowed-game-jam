@@ -8,6 +8,8 @@ const MIN_STEP: float = 5.0
 @onready var history_log: RichTextLabel = %HistoryLog
 @onready var monster : Node2D = %Monster
 @onready var paint_cursor: AnimatedSprite2D = %PaintCursor
+@onready var ui_slider: AudioStreamPlayer2D = %UISlider
+
 
 var paint_history : Array = []
 var line_width : float = 7.0
@@ -54,6 +56,7 @@ func _new_stroke() -> Line2D:
 	return line
 
 func _update_line_width(value: float) -> void:
+	_play_slider_audio()
 	line_width += value
 	if line_width >= brush_size.max_value:
 		line_width = brush_size.max_value
@@ -87,3 +90,12 @@ func _on_panel_container_mouse_entered() -> void:
 func _on_panel_container_mouse_exited() -> void:
 	in_drawable_area = false
 	paint_cursor.frame = 1
+
+func _on_brush_size_value_changed(value: float) -> void:
+	_play_slider_audio()
+	line_width = brush_size.value
+	brush_size_label.text = "Brush Size: " + str(brush_size.value)
+
+func _play_slider_audio() -> void:
+	ui_slider.play()
+	ui_slider.pitch_scale = randf_range(0.6, 1.4)
