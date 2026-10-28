@@ -24,7 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://b3rtv2myw3pjo" path="res://assets/background/background_design_phase.png" id="21_536hi"]
 [ext_resource type="Texture2D" uid="uid://csnqwxap04078" path="res://assets/ui/progress_bar_background.png" id="22_64krs"]
 [ext_resource type="Texture2D" uid="uid://cdmrwyqb7e7bj" path="res://assets/ui/progress_bar_fill.png" id="23_2repe"]
+[ext_resource type="PackedScene" uid="uid://c8rycxb55k0nx" path="res://design_phase/paint_color_option.tscn" id="23_011qy"]
+[ext_resource type="Texture2D" uid="uid://q65247o6ctxu" path="res://assets/ui/paint_colors.png" id="23_o8d5r"]
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="24_2repe"]
+[ext_resource type="Script" uid="uid://bmkhbetsdsate" path="res://design_phase/paint_cursor.gd" id="24_4synp"]
+[ext_resource type="Resource" uid="uid://cofakta3m3c0v" path="res://utilities/resources/color_1.tres" id="24_lrk46"]
+[ext_resource type="Texture2D" uid="uid://c6fjovdtv1h81" path="res://assets/ui/paint_cursor.png" id="26_g63iv"]
+[ext_resource type="Resource" uid="uid://bfw53kihtx57r" path="res://utilities/resources/color_3.tres" id="26_nqa1g"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -152,6 +158,22 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_qtpa5"]
 font_size = 22
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkh3f"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0jtt"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig73d"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(736, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1s0v"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="LabelSettings" id="LabelSettings_67c5j"]
 font = ExtResource("20_32fly")
 font_size = 12
@@ -161,6 +183,31 @@ shadow_color = Color(0, 0, 0, 0.33333334)
 [sub_resource type="LabelSettings" id="LabelSettings_u6yyk"]
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig73d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmvdy"]
+atlas = ExtResource("26_g63iv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rkkx"]
+atlas = ExtResource("26_g63iv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ig73d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmvdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rkkx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whd7v"]
 atlas = ExtResource("23_2repe")
@@ -395,34 +442,33 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=964715095]
+[node name="ColorsRowOne" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=1031918381]
 layout_mode = 2
 
-[node name="RedColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer" unique_id=47399559]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 25)
+[node name="PaintColorOption" parent="Control/Paint/ColorPalette/ColorsRowOne" unique_id=404616693 instance=ExtResource("23_011qy")]
 layout_mode = 2
-color = Color(0.8246536, 0.17506364, 9.62615e-08, 1)
+texture = SubResource("AtlasTexture_vkh3f")
+color_info = ExtResource("24_lrk46")
 
-[node name="YellowColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer" unique_id=225998242]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 25)
+[node name="PaintColorOption2" parent="Control/Paint/ColorPalette/ColorsRowOne" unique_id=2080154374 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
-color = Color(1, 0.8000001, 0, 1)
+texture = SubResource("AtlasTexture_c0jtt")
+color_info = ExtResource("26_nqa1g")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=1486036321]
 layout_mode = 2
 
-[node name="WhiteColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1484931818]
+[node name="WhiteColor" type="TextureRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=325338084]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 25)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+texture = SubResource("AtlasTexture_ig73d")
 
-[node name="BlackColor" type="ColorRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1888892879]
+[node name="BlackColor" type="TextureRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1650521868]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 25)
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+texture = SubResource("AtlasTexture_f1s0v")
 
 [node name="BrushSize" type="HSlider" parent="Control/Paint" unique_id=374328381]
 unique_name_in_owner = true
@@ -447,27 +493,60 @@ offset_bottom = 38.0
 text = "Brush Size: 0.0"
 label_settings = SubResource("LabelSettings_67c5j")
 
-[node name="HistoryLabel" type="Label" parent="Control/Paint" unique_id=1445892309]
-visible = false
+[node name="PanelContainer" type="PanelContainer" parent="Control/Paint" unique_id=920278114]
+custom_minimum_size = Vector2(286, 0)
+custom_maximum_size = Vector2(286, -1)
 layout_mode = 0
-offset_left = 992.0
-offset_top = 549.0
-offset_right = 1048.0
-offset_bottom = 572.0
+offset_left = 985.0
+offset_top = 371.0
+offset_right = 1271.0
+offset_bottom = 592.0
+theme = ExtResource("24_2repe")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/PanelContainer" unique_id=1916638425]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HistoryContainer" type="VBoxContainer" parent="Control/Paint/PanelContainer/MarginContainer" unique_id=1067584493]
+custom_minimum_size = Vector2(286, 175)
+custom_maximum_size = Vector2(286, 175)
+layout_mode = 2
+theme = ExtResource("24_2repe")
+
+[node name="HistoryLabel" type="Label" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer" unique_id=1445892309]
+layout_mode = 2
+size_flags_vertical = 0
 text = "History"
 label_settings = SubResource("LabelSettings_u6yyk")
 
-[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/HistoryLabel" unique_id=703850047]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer" unique_id=1052417383]
+custom_minimum_size = Vector2(286, 175)
+custom_maximum_size = Vector2(286, 175)
+layout_mode = 2
+theme_override_constants/scrollbar_h_separation = 5
+theme_override_styles/panel = SubResource("StyleBoxFlat_ig73d")
+horizontal_scroll_mode = 0
+
+[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer/ScrollContainer" unique_id=703850047]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 500)
-layout_mode = 0
-offset_left = 2.0
-offset_top = 27.0
-offset_right = 202.0
-offset_bottom = 527.0
+custom_minimum_size = Vector2(260, 150)
+custom_maximum_size = Vector2(260, 150)
+layout_mode = 2
 bbcode_enabled = true
 text = ">> Line Drawn in Color
 >> Line Drawn in Color"
+
+[node name="PaintCursor" type="AnimatedSprite2D" parent="Control/Paint" unique_id=821373705]
+unique_name_in_owner = true
+position = Vector2(332, 94)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ig73d")
+frame = 1
+offset = Vector2(12, 10)
+script = ExtResource("24_4synp")
 
 [node name="MonsterStats" type="PanelContainer" parent="Control" unique_id=2088591500]
 layout_mode = 0
@@ -638,10 +717,10 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 0
-offset_left = 1026.0
-offset_top = 430.0
-offset_right = 1176.0
-offset_bottom = 505.0
+offset_left = 1124.0
+offset_top = 621.0
+offset_right = 1274.0
+offset_bottom = 696.0
 theme = ExtResource("24_2repe")
 text = "Save Creation"
 
@@ -652,3 +731,6 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(500, 500)
 render_target_update_mode = 4
+
+[connection signal="mouse_entered" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_exited"]

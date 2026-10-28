@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PaintColors" format=3 uid="uid://x1nyrdorwyay"]
+
+[ext_resource type="Script" uid="uid://c3ldny40vasvc" path="res://utilities/resources/paint_colors.gd" id="1_aumtw"]
+[ext_resource type="Texture2D" uid="uid://q65247o6ctxu" path="res://assets/ui/paint_colors.png" id="1_ovvlw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovvlw"]
+atlas = ExtResource("1_ovvlw")
+region = Rect2(384, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_aumtw")
+hex_color = Color(0.73333335, 0.44705883, 0.62352943, 1)
+palette_image = SubResource("AtlasTexture_ovvlw")
+metadata/_custom_type_script = "uid://c3ldny40vasvc"

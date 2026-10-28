@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://dep1bc7jhi86h" path="res://assets/fonts/Peaberry-Base.otf" id="4_l64jj"]
 [ext_resource type="Texture2D" uid="uid://cdudx47hl3hvj" path="res://assets/ui/scroll_bar_grab.png" id="4_x27uq"]
 [ext_resource type="Texture2D" uid="uid://dyocrqdqtfxlu" path="res://assets/ui/scroll_bar_fill.png" id="6_k4cr1"]
+[ext_resource type="Texture2D" uid="uid://b0me1epoq0wko" path="res://assets/ui/scroll_bar_back_vertical.png" id="8_g2k3a"]
+[ext_resource type="Texture2D" uid="uid://c16aulq0i4h6y" path="res://assets/ui/scroll_bar_grab_vertical.png" id="8_jjarc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fqd14"]
 atlas = ExtResource("1_q4r4s")
@@ -101,6 +103,27 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e1g2j"]
+texture = ExtResource("3_pxcak")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4rak"]
+texture = ExtResource("8_jjarc")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_45kcn"]
+texture = ExtResource("8_g2k3a")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
 [resource]
 default_font = ExtResource("4_l64jj")
 Button/fonts/font = ExtResource("4_l64jj")
@@ -116,3 +139,6 @@ HSlider/styles/grabber_area = SubResource("StyleBoxTexture_k4cr1")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_jjarc")
 HSlider/styles/slider = SubResource("StyleBoxTexture_g2k3a")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ig73d")
+ScrollContainer/styles/panel = SubResource("StyleBoxTexture_e1g2j")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_q4rak")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_45kcn")

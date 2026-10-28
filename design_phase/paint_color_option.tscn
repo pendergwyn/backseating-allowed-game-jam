@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c8rycxb55k0nx"]
+
+[ext_resource type="Script" uid="uid://c78avgp7j1foi" path="res://design_phase/paint_color_option.gd" id="1_3som3"]
+
+[node name="PaintColorOption" type="TextureRect" unique_id=404616693]
+script = ExtResource("1_3som3")

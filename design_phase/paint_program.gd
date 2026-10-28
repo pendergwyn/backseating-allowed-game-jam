@@ -7,11 +7,13 @@ const MIN_STEP: float = 5.0
 @onready var brush_size_label : Label = %BrushSizeLabel
 @onready var history_log: RichTextLabel = %HistoryLog
 @onready var monster : Node2D = %Monster
+@onready var paint_cursor: AnimatedSprite2D = %PaintCursor
 
 var paint_history : Array = []
 var line_width : float = 7.0
 var stroke : Line2D = null
-var line_offset : Vector2 = Vector2(640.0, 360.0)
+var line_offset : Vector2 = Vector2(640.0, 325.0)
+var in_drawable_area : bool = false
 
 func _ready() -> void:
 	brush_size.value = line_width
@@ -19,7 +21,7 @@ func _ready() -> void:
 	history_log.text = ""
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and in_drawable_area == true:
 		if event.is_pressed():
 			stroke = _new_stroke()
 			stroke.add_point(event.position - line_offset)
@@ -75,3 +77,13 @@ func _update_history_log() -> void:
 		var color_used : Color = paint_history[step].default_color
 		var color_hex = color_used.to_html(false)
 		history_log.text = ">> " + "[color=#%s]" % color_hex  + str(paint_history[step]) + "[/color][br]" + current_log
+
+
+func _on_panel_container_mouse_entered() -> void:
+	in_drawable_area = true
+	paint_cursor.frame = 0
+
+
+func _on_panel_container_mouse_exited() -> void:
+	in_drawable_area = false
+	paint_cursor.frame = 1
