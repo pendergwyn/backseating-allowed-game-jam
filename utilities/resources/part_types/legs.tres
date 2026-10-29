@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BodyPartTypes" format=3 uid="uid://d254aqpert7oo"]
+
+[ext_resource type="Script" uid="uid://bjijt6hej586i" path="res://utilities/resources/part_types/body_part_types.gd" id="1_b6cnx"]
+[ext_resource type="Texture2D" uid="uid://b03v2f76jciqa" path="res://assets/legs/leg_types.png" id="1_d3yp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgmee"]
+atlas = ExtResource("1_d3yp2")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf3e6"]
+atlas = ExtResource("1_d3yp2")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3yp2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgmee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf3e6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_b6cnx")
+body_part = "Legs"
+part_types = SubResource("SpriteFrames_d3yp2")
+metadata/_custom_type_script = "uid://bjijt6hej586i"

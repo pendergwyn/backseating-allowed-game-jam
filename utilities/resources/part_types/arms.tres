@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="BodyPartTypes" format=3 uid="uid://x7iiskct2vc5"]
+
+[ext_resource type="Texture2D" uid="uid://ba3srul82xpna" path="res://assets/arms/arm_types.png" id="1_0b43c"]
+[ext_resource type="Script" uid="uid://bjijt6hej586i" path="res://utilities/resources/part_types/body_part_types.gd" id="1_u2eit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sigt"]
+atlas = ExtResource("1_0b43c")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt4to"]
+atlas = ExtResource("1_0b43c")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0b43c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sigt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt4to")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_u2eit")
+body_part = "Arms"
+part_types = SubResource("SpriteFrames_0b43c")
+metadata/_custom_type_script = "uid://bjijt6hej586i"

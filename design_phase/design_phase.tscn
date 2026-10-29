@@ -25,14 +25,18 @@
 [ext_resource type="Script" uid="uid://g8lh15jie3bg" path="res://design_phase/monster_stats.gd" id="20_u6yyk"]
 [ext_resource type="Texture2D" uid="uid://b3rtv2myw3pjo" path="res://assets/background/background_design_phase.png" id="21_536hi"]
 [ext_resource type="Texture2D" uid="uid://csnqwxap04078" path="res://assets/ui/progress_bar_background.png" id="22_64krs"]
+[ext_resource type="Resource" uid="uid://bl4r52ojby6tl" path="res://utilities/resources/part_types/antenna.tres" id="22_xbevf"]
 [ext_resource type="Texture2D" uid="uid://b7h2eidmrfdcw" path="res://assets/ui/container_color_palette.png" id="22_ym6ry"]
 [ext_resource type="Texture2D" uid="uid://cdmrwyqb7e7bj" path="res://assets/ui/progress_bar_fill.png" id="23_2repe"]
 [ext_resource type="PackedScene" uid="uid://c8rycxb55k0nx" path="res://design_phase/paint_color_option.tscn" id="23_011qy"]
 [ext_resource type="Texture2D" uid="uid://n54b4hqcq6r1" path="res://assets/ui/container_outline.png" id="23_km2sx"]
 [ext_resource type="Texture2D" uid="uid://q65247o6ctxu" path="res://assets/ui/paint_colors.png" id="23_o8d5r"]
+[ext_resource type="Resource" uid="uid://3kvpe2c7df6l" path="res://utilities/resources/part_types/body.tres" id="23_u5kha"]
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="24_2repe"]
+[ext_resource type="Resource" uid="uid://x7iiskct2vc5" path="res://utilities/resources/part_types/arms.tres" id="24_3ex0s"]
 [ext_resource type="Script" uid="uid://bmkhbetsdsate" path="res://design_phase/paint_cursor.gd" id="24_4synp"]
 [ext_resource type="Resource" uid="uid://cofakta3m3c0v" path="res://utilities/resources/colors/color_1.tres" id="24_lrk46"]
+[ext_resource type="Resource" uid="uid://d254aqpert7oo" path="res://utilities/resources/part_types/legs.tres" id="25_0i46e"]
 [ext_resource type="Resource" uid="uid://h34lj4rbtr8m" path="res://utilities/resources/colors/color_11.tres" id="25_qqqk4"]
 [ext_resource type="Texture2D" uid="uid://c6fjovdtv1h81" path="res://assets/ui/paint_cursor.png" id="26_g63iv"]
 [ext_resource type="Resource" uid="uid://bkwwtqiy054sw" path="res://utilities/resources/colors/color_15.tres" id="26_km2sx"]
@@ -480,25 +484,25 @@ script = ExtResource("20_4k2a6")
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Antenna"
-parts = null
+parts = ExtResource("22_xbevf")
 
 [node name="BodyContainer" parent="Control/BodyPartSelector" unique_id=1400211009 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Body"
-parts = null
+parts = ExtResource("23_u5kha")
 
 [node name="ArmsContainer" parent="Control/BodyPartSelector" unique_id=1321480009 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Arms"
-parts = null
+parts = ExtResource("24_3ex0s")
 
 [node name="FeetContainer" parent="Control/BodyPartSelector" unique_id=2128900487 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Legs"
-parts = null
+parts = ExtResource("25_0i46e")
 
 [node name="AntennaButton" type="Button" parent="Control/BodyPartSelector" unique_id=525173539]
 unique_name_in_owner = true

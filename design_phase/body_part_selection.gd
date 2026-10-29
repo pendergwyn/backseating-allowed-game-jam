@@ -7,7 +7,7 @@ class_name BodyPartSelection
 		body_type = set_body
 		_update_container_details()
 
-@export var parts : Array = []
+@export var parts : BodyPartTypes
 		
 @onready var previous_button: TextureButton = %PreviousButton
 @onready var _body_part_name: RichTextLabel = %BodyPartName
