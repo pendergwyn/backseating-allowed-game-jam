@@ -11,9 +11,6 @@ var current_color : Color = Color.WHITE
 func _ready() -> void:
 	selected_color.color = current_color
 	
-	white_color.gui_input.connect(_color_change.bind(Color("f1e4fd")))
-	black_color.gui_input.connect(_color_change.bind(Color("5e4f5d")))
-	
 	var color_options = get_tree().get_nodes_in_group("color_options")
 	for color : TextureRect in color_options:
 		color.gui_input.connect(_color_change.bind(color.hex_color))

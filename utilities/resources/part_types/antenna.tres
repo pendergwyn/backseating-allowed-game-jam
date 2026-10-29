@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="BodyPartTypes" format=3 uid="uid://bl4r52ojby6tl"]
+
+[ext_resource type="Texture2D" uid="uid://bwixfsb4x56qa" path="res://assets/antenna/antenna_types.png" id="1_0y6bm"]
+[ext_resource type="Script" uid="uid://bjijt6hej586i" path="res://utilities/resources/part_types/body_part_types.gd" id="1_t3bie"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30m6e"]
+atlas = ExtResource("1_0y6bm")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31ia2"]
+atlas = ExtResource("1_0y6bm")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jmv6"]
+atlas = ExtResource("1_0y6bm")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0y6bm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30m6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31ia2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jmv6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_t3bie")
+body_part = "Antenna"
+part_types = SubResource("SpriteFrames_0y6bm")
+metadata/_custom_type_script = "uid://bjijt6hej586i"

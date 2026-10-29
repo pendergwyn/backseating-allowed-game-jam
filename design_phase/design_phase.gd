@@ -18,8 +18,6 @@ var current_state : State = State.ANTENNA
 @onready var arms_button: Button = %ArmsButton
 @onready var legs_button: Button = %LegsButton
 @onready var antenna_button: Button = %AntennaButton
-@onready var previous_button: Button = %PreviousButton
-@onready var next_button: Button = %NextButton
 @onready var label: Label = %Label
 @onready var request_command : TwitchCommand = %RequestCommand
 @onready var save_button : Button = %SaveButton
@@ -37,8 +35,7 @@ func _ready() -> void:
 	body_button.pressed.connect(_body_button_pressed)
 	arms_button.pressed.connect(_arms_button_pressed)
 	legs_button.pressed.connect(_legs_button_pressed)
-	previous_button.pressed.connect(_previous_button_pressed)
-	next_button.pressed.connect(_next_button_pressed)
+	
 	save_button.pressed.connect(_save_button_pressed)
 	
 	## Twitch Signal Connections

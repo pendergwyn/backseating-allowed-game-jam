@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bjtnovxqpckoi"]
+
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_08x5p"]
+[ext_resource type="Script" uid="uid://dadsfwlxcjtlk" path="res://design_phase/body_part_selection.gd" id="1_wqimu"]
+[ext_resource type="Texture2D" uid="uid://cvjl8pxv0kllf" path="res://assets/ui/ui_arrow.png" id="2_wqimu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb87g"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o74c"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ino24"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k2a6"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwrns"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbceq"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqimu"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esy1l"]
+atlas = ExtResource("2_wqimu")
+region = Rect2(32, 0, 32, 64)
+
+[node name="BodyPartSelection" type="HBoxContainer" unique_id=728489508]
+script = ExtResource("1_wqimu")
+
+[node name="PreviousButton" type="TextureButton" parent="." unique_id=1476114283]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_08x5p")
+texture_normal = SubResource("AtlasTexture_rb87g")
+texture_pressed = SubResource("AtlasTexture_7o74c")
+texture_hover = SubResource("AtlasTexture_ino24")
+texture_focused = SubResource("AtlasTexture_4k2a6")
+
+[node name="BodyPartyContainer" type="PanelContainer" parent="." unique_id=1366202825]
+custom_minimum_size = Vector2(240, 64)
+layout_mode = 2
+theme = ExtResource("1_08x5p")
+
+[node name="BodyPartName" type="RichTextLabel" parent="BodyPartyContainer" unique_id=1016091539]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Body Part Name"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="." unique_id=1083570741]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 64)
+layout_mode = 2
+offset_transform_enabled = true
+theme = ExtResource("1_08x5p")
+texture_normal = SubResource("AtlasTexture_mwrns")
+texture_pressed = SubResource("AtlasTexture_vbceq")
+texture_hover = SubResource("AtlasTexture_wqimu")
+texture_focused = SubResource("AtlasTexture_esy1l")
+flip_h = true

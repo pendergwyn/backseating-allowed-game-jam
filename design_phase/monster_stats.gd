@@ -1,7 +1,6 @@
 extends Control
 class_name MonsterStats
 
-@onready var monster_name: RichTextLabel = %MonsterName
 @onready var scare_skill_meter: TextureRect = %ScareSkillMeter
 @onready var scare_increase_button: Button = %ScareIncreaseButton
 @onready var stealth_skill_meter: TextureRect = %StealthSkillMeter
@@ -12,6 +11,8 @@ class_name MonsterStats
 @onready var strength_increase_button: Button = %StrengthIncreaseButton
 @onready var skill_point_label: RichTextLabel = %SkillPointLabel
 @onready var chats_points_label: RichTextLabel = %ChatsPointsLabel
+@onready var ui_click: AudioStreamPlayer2D = %UIClick
+
 
 
 func _ready() -> void:
@@ -49,6 +50,8 @@ func _speed_increase(_from_username: String, _info: TwitchCommandInfo, _args: Pa
 		_increase_stat("speed", "chat")
 
 func _increase_stat(stat : String, who : String) -> void:
+	ui_click.play()
+	
 	match stat:
 		"scare":
 			PlayerStats.scare_stat += 1

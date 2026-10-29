@@ -19,20 +19,47 @@
 [ext_resource type="Texture2D" uid="uid://b03v2f76jciqa" path="res://assets/legs/leg_types.png" id="16_67c5j"]
 [ext_resource type="Script" uid="uid://bjo1qfr52clig" path="res://design_phase/color_palette.gd" id="18_67c5j"]
 [ext_resource type="Script" uid="uid://bdtfjbel2vmnb" path="res://design_phase/paint_program.gd" id="18_kpbe2"]
+[ext_resource type="Script" uid="uid://dmurgk7m2baqf" path="res://design_phase/body_part_selector.gd" id="20_4k2a6"]
 [ext_resource type="FontFile" uid="uid://dep1bc7jhi86h" path="res://assets/fonts/Peaberry-Base.otf" id="20_32fly"]
+[ext_resource type="PackedScene" uid="uid://bjtnovxqpckoi" path="res://design_phase/body_part_selection.tscn" id="20_ino24"]
 [ext_resource type="Script" uid="uid://g8lh15jie3bg" path="res://design_phase/monster_stats.gd" id="20_u6yyk"]
 [ext_resource type="Texture2D" uid="uid://b3rtv2myw3pjo" path="res://assets/background/background_design_phase.png" id="21_536hi"]
 [ext_resource type="Texture2D" uid="uid://csnqwxap04078" path="res://assets/ui/progress_bar_background.png" id="22_64krs"]
+[ext_resource type="Texture2D" uid="uid://b7h2eidmrfdcw" path="res://assets/ui/container_color_palette.png" id="22_ym6ry"]
 [ext_resource type="Texture2D" uid="uid://cdmrwyqb7e7bj" path="res://assets/ui/progress_bar_fill.png" id="23_2repe"]
 [ext_resource type="PackedScene" uid="uid://c8rycxb55k0nx" path="res://design_phase/paint_color_option.tscn" id="23_011qy"]
+[ext_resource type="Texture2D" uid="uid://n54b4hqcq6r1" path="res://assets/ui/container_outline.png" id="23_km2sx"]
 [ext_resource type="Texture2D" uid="uid://q65247o6ctxu" path="res://assets/ui/paint_colors.png" id="23_o8d5r"]
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="24_2repe"]
 [ext_resource type="Script" uid="uid://bmkhbetsdsate" path="res://design_phase/paint_cursor.gd" id="24_4synp"]
-[ext_resource type="Resource" uid="uid://cofakta3m3c0v" path="res://utilities/resources/color_1.tres" id="24_lrk46"]
+[ext_resource type="Resource" uid="uid://cofakta3m3c0v" path="res://utilities/resources/colors/color_1.tres" id="24_lrk46"]
+[ext_resource type="Resource" uid="uid://h34lj4rbtr8m" path="res://utilities/resources/colors/color_11.tres" id="25_qqqk4"]
 [ext_resource type="Texture2D" uid="uid://c6fjovdtv1h81" path="res://assets/ui/paint_cursor.png" id="26_g63iv"]
-[ext_resource type="Resource" uid="uid://bfw53kihtx57r" path="res://utilities/resources/color_3.tres" id="26_nqa1g"]
+[ext_resource type="Resource" uid="uid://bkwwtqiy054sw" path="res://utilities/resources/colors/color_15.tres" id="26_km2sx"]
+[ext_resource type="Resource" uid="uid://bfw53kihtx57r" path="res://utilities/resources/colors/color_3.tres" id="26_nqa1g"]
+[ext_resource type="Resource" uid="uid://cpyup2pevmv8" path="res://utilities/resources/colors/color_18.tres" id="27_ym6ry"]
+[ext_resource type="Resource" uid="uid://c147lv25oq64y" path="res://utilities/resources/colors/color_19.tres" id="28_ino24"]
+[ext_resource type="Resource" uid="uid://n1tnh6juddm5" path="res://utilities/resources/colors/color_22.tres" id="29_4k2a6"]
 [ext_resource type="AudioStream" uid="uid://bqm2vse417osu" path="res://audio/sfx/click1.ogg" id="32_2cilq"]
+[ext_resource type="Resource" uid="uid://kmjbw1qk8nnm" path="res://utilities/resources/colors/color_6.tres" id="32_yekdt"]
 [ext_resource type="AudioStream" uid="uid://o11uwpgwuwb" path="res://audio/sfx/rollover3.ogg" id="33_tarkt"]
+[ext_resource type="Resource" uid="uid://dspo6ajwo38p" path="res://utilities/resources/colors/color_8.tres" id="33_xbevf"]
+[ext_resource type="AudioStream" uid="uid://qlfbxv6iqel" path="res://audio/sfx/drawing.ogg" id="34_mmvdy"]
+[ext_resource type="Resource" uid="uid://ovo4rx13bn36" path="res://utilities/resources/colors/color_16.tres" id="34_u5kha"]
+[ext_resource type="Resource" uid="uid://dlsvus3tf7m5k" path="res://utilities/resources/colors/color_4.tres" id="35_3ex0s"]
+[ext_resource type="Resource" uid="uid://cjsjqgwf6ju7y" path="res://utilities/resources/colors/color_5.tres" id="36_0i46e"]
+[ext_resource type="Resource" uid="uid://bgsmw1letogoq" path="res://utilities/resources/colors/color_7.tres" id="37_pribx"]
+[ext_resource type="Resource" uid="uid://q53tw8s8c5xa" path="res://utilities/resources/colors/color_9.tres" id="38_hha20"]
+[ext_resource type="Resource" uid="uid://bt57yah8o7co3" path="res://utilities/resources/colors/color_10.tres" id="39_npx36"]
+[ext_resource type="Resource" uid="uid://vr1kirqk24d6" path="res://utilities/resources/colors/color_12.tres" id="40_fryw0"]
+[ext_resource type="Resource" uid="uid://x1nyrdorwyay" path="res://utilities/resources/colors/color_13.tres" id="41_1487g"]
+[ext_resource type="Resource" uid="uid://bd74s0o6rqcr6" path="res://utilities/resources/colors/color_14.tres" id="42_6u4lg"]
+[ext_resource type="Resource" uid="uid://dvsl166j5svxj" path="res://utilities/resources/colors/color_20.tres" id="43_dwllq"]
+[ext_resource type="Resource" uid="uid://cm101lenp3ajd" path="res://utilities/resources/colors/color_21.tres" id="44_qnhqe"]
+[ext_resource type="Resource" uid="uid://dylubargenmfm" path="res://utilities/resources/colors/color_17.tres" id="45_rqw5k"]
+[ext_resource type="Resource" uid="uid://dsc7utjxrwinq" path="res://utilities/resources/colors/color_23.tres" id="46_i2fmc"]
+[ext_resource type="Resource" uid="uid://ci8pfgkqa113d" path="res://utilities/resources/colors/color_24.tres" id="47_li2ps"]
+[ext_resource type="Resource" uid="uid://cd8roucvhd7iv" path="res://utilities/resources/colors/color_2.tres" id="48_kbrqa"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -160,6 +187,40 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_qtpa5"]
 font_size = 22
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whd7v"]
+texture = ExtResource("22_ym6ry")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb87g"]
+texture = ExtResource("23_km2sx")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50s6w"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiov1"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idj71"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g65x"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2dtv"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(672, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkh3f"]
 atlas = ExtResource("23_o8d5r")
 region = Rect2(0, 0, 32, 32)
@@ -168,11 +229,71 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("23_o8d5r")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ig73d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8evxp"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kr0q"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq0c0"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn0v2"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3xse"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us0o3"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3wed"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oob4j"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twifi"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovvlw"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kory7"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04l1b"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbwns"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u75vb"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh5sn"]
+atlas = ExtResource("23_o8d5r")
+region = Rect2(704, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wnh0"]
 atlas = ExtResource("23_o8d5r")
 region = Rect2(736, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1s0v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_pma7d"]
 atlas = ExtResource("23_o8d5r")
 region = Rect2(32, 0, 32, 32)
 
@@ -297,6 +418,7 @@ script = ExtResource("10_cfx73")
 
 [node name="RequestList" type="RichTextLabel" parent="." unique_id=774036110]
 unique_name_in_owner = true
+visible = false
 offset_left = 267.0
 offset_top = 9.0
 offset_right = 467.0
@@ -342,73 +464,73 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BodyPartButtons" type="VBoxContainer" parent="Control" unique_id=199241138]
+[node name="BodyPartSelector" type="VBoxContainer" parent="Control" unique_id=199241138]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = 340.0
-offset_right = 74.0
-offset_bottom = 476.0
+offset_left = 920.0
+offset_top = 10.0
+offset_right = 1232.0
+offset_bottom = 322.0
 grow_vertical = 2
+script = ExtResource("20_4k2a6")
 
-[node name="AntennaButton" type="Button" parent="Control/BodyPartButtons" unique_id=525173539]
+[node name="AntennaContainer" parent="Control/BodyPartSelector" unique_id=728489508 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
+layout_mode = 2
+body_type = "Antenna"
+parts = null
+
+[node name="BodyContainer" parent="Control/BodyPartSelector" unique_id=1400211009 instance=ExtResource("20_ino24")]
+unique_name_in_owner = true
+layout_mode = 2
+body_type = "Body"
+parts = null
+
+[node name="ArmsContainer" parent="Control/BodyPartSelector" unique_id=1321480009 instance=ExtResource("20_ino24")]
+unique_name_in_owner = true
+layout_mode = 2
+body_type = "Arms"
+parts = null
+
+[node name="FeetContainer" parent="Control/BodyPartSelector" unique_id=2128900487 instance=ExtResource("20_ino24")]
+unique_name_in_owner = true
+layout_mode = 2
+body_type = "Legs"
+parts = null
+
+[node name="AntennaButton" type="Button" parent="Control/BodyPartSelector" unique_id=525173539]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Antenna"
 
-[node name="BodyButton" type="Button" parent="Control/BodyPartButtons" unique_id=1147911709]
+[node name="BodyButton" type="Button" parent="Control/BodyPartSelector" unique_id=1147911709]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Body"
 
-[node name="ArmsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1952080581]
+[node name="ArmsButton" type="Button" parent="Control/BodyPartSelector" unique_id=1952080581]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Arms"
 
-[node name="LegsButton" type="Button" parent="Control/BodyPartButtons" unique_id=1081249359]
+[node name="LegsButton" type="Button" parent="Control/BodyPartSelector" unique_id=1081249359]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(240, 75)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Legs
-"
-
-[node name="SwapBodyPartTypes" type="HBoxContainer" parent="Control" unique_id=1496603388]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 393.0
-offset_top = 627.0
-offset_right = 877.0
-offset_bottom = 702.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PreviousButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=1191942289]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(240, 75)
-layout_mode = 2
-theme = ExtResource("24_2repe")
-theme_override_fonts/font = ExtResource("20_32fly")
-text = "Previous"
-
-[node name="NextButton" type="Button" parent="Control/SwapBodyPartTypes" unique_id=772916141]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(240, 75)
-layout_mode = 2
-theme = ExtResource("24_2repe")
-text = "Next
 "
 
 [node name="Label" type="Label" parent="Control" unique_id=1273546801]
@@ -428,74 +550,202 @@ horizontal_alignment = 1
 
 [node name="Paint" type="Control" parent="Control" unique_id=1001168213]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -48.0
+offset_top = 80.0
+offset_right = -8.0
+offset_bottom = 120.0
 script = ExtResource("18_kpbe2")
 
-[node name="ColorPalette" type="VBoxContainer" parent="Control/Paint" unique_id=260839128]
-unique_name_in_owner = true
+[node name="ColorPaletteContainer" type="PanelContainer" parent="Control/Paint" unique_id=870711631]
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 108.0
+offset_left = 192.0
+offset_top = 206.0
+offset_right = 394.0
+offset_bottom = 498.0
+theme = ExtResource("24_2repe")
+theme_override_styles/panel = SubResource("StyleBoxTexture_whd7v")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/ColorPaletteContainer" unique_id=1224440231]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer" unique_id=1895855359]
+z_index = 50
+custom_minimum_size = Vector2(176, 50)
+custom_maximum_size = Vector2(176, 50)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_rb87g")
+
+[node name="ColorPalette" type="VBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer" unique_id=260839128]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("24_2repe")
 script = ExtResource("18_67c5j")
 
-[node name="SelectedColor" type="ColorRect" parent="Control/Paint/ColorPalette" unique_id=102874552]
+[node name="SelectedColor" type="ColorRect" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=102874552]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 50)
+custom_minimum_size = Vector2(168, 50)
+custom_maximum_size = Vector2(168, -1)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4, 0)
+
+[node name="BlueColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=995159701]
 layout_mode = 2
 
-[node name="ColorsRowOne" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=1031918381]
+[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=404616693 instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_50s6w")
+color_info = ExtResource("25_qqqk4")
+
+[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=576759954 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tiov1")
+color_info = ExtResource("26_km2sx")
+
+[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=402233851 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_idj71")
+color_info = ExtResource("27_ym6ry")
+
+[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=144630082 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1g65x")
+color_info = ExtResource("28_ino24")
+
+[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=1103200157 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_h2dtv")
+color_info = ExtResource("29_4k2a6")
+
+[node name="GreenColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1031918381]
 layout_mode = 2
 
-[node name="PaintColorOption" parent="Control/Paint/ColorPalette/ColorsRowOne" unique_id=404616693 instance=ExtResource("23_011qy")]
+[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=861143699 instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_vkh3f")
 color_info = ExtResource("24_lrk46")
 
-[node name="PaintColorOption2" parent="Control/Paint/ColorPalette/ColorsRowOne" unique_id=2080154374 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=2080154374 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_c0jtt")
 color_info = ExtResource("26_nqa1g")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Paint/ColorPalette" unique_id=1486036321]
+[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1595344496 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_8evxp")
+color_info = ExtResource("32_yekdt")
+
+[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1906024718 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3kr0q")
+color_info = ExtResource("33_xbevf")
+
+[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1690833258 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uq0c0")
+color_info = ExtResource("34_u5kha")
+
+[node name="RedOrangeColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=151951117]
 layout_mode = 2
 
-[node name="WhiteColor" type="TextureRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=325338084]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
+[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=1079616326 instance=ExtResource("23_011qy")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ig73d")
+texture = SubResource("AtlasTexture_vn0v2")
+color_info = ExtResource("35_3ex0s")
 
-[node name="BlackColor" type="TextureRect" parent="Control/Paint/ColorPalette/HBoxContainer2" unique_id=1650521868]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(32, 32)
+[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=513645912 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_f1s0v")
+texture = SubResource("AtlasTexture_g3xse")
+color_info = ExtResource("36_0i46e")
 
-[node name="BrushSize" type="HSlider" parent="Control/Paint" unique_id=374328381]
+[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=765633986 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_us0o3")
+color_info = ExtResource("37_pribx")
+
+[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=776128688 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_f3wed")
+color_info = ExtResource("38_hha20")
+
+[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=685374787 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_oob4j")
+color_info = ExtResource("39_npx36")
+
+[node name="PinkColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=284384723]
+layout_mode = 2
+
+[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=2019645224 instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_twifi")
+color_info = ExtResource("40_fryw0")
+
+[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=396786417 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ovvlw")
+color_info = ExtResource("41_1487g")
+
+[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1959817919 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kory7")
+color_info = ExtResource("42_6u4lg")
+
+[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=705134940 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_04l1b")
+color_info = ExtResource("43_dwllq")
+
+[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1224556923 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mbwns")
+color_info = ExtResource("44_qnhqe")
+
+[node name="YellowWhiteBlackRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1486036321]
+layout_mode = 2
+
+[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=392596656 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_u75vb")
+color_info = ExtResource("45_rqw5k")
+
+[node name="PaintColorOption6" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1921136808 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hh5sn")
+color_info = ExtResource("46_i2fmc")
+
+[node name="PaintColorOption7" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=809688462 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2wnh0")
+color_info = ExtResource("47_li2ps")
+
+[node name="PaintColorOption8" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1198563360 groups=["color_options"] instance=ExtResource("23_011qy")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_pma7d")
+color_info = ExtResource("48_kbrqa")
+
+[node name="BrushSizeLabel" type="Label" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=945027173]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 128.0
-offset_top = 13.0
-offset_right = 248.0
-offset_bottom = 29.0
+layout_mode = 2
+text = "Brush Size: 0.0"
+label_settings = SubResource("LabelSettings_67c5j")
+
+[node name="BrushSize" type="HSlider" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=374328381]
+unique_name_in_owner = true
+layout_mode = 2
 theme = ExtResource("24_2repe")
 min_value = 2.5
 max_value = 32.0
 step = 0.5
 value = 7.0
 
-[node name="BrushSizeLabel" type="Label" parent="Control/Paint/BrushSize" unique_id=945027173]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 100.0
-offset_bottom = 38.0
-text = "Brush Size: 0.0"
-label_settings = SubResource("LabelSettings_67c5j")
-
-[node name="PanelContainer" type="PanelContainer" parent="Control/Paint" unique_id=920278114]
+[node name="HistoryContainer" type="PanelContainer" parent="Control/Paint" unique_id=920278114]
+visible = false
 custom_minimum_size = Vector2(286, 0)
 custom_maximum_size = Vector2(286, -1)
 layout_mode = 0
@@ -505,26 +755,26 @@ offset_right = 1271.0
 offset_bottom = 592.0
 theme = ExtResource("24_2repe")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/PanelContainer" unique_id=1916638425]
+[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/HistoryContainer" unique_id=1916638425]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HistoryContainer" type="VBoxContainer" parent="Control/Paint/PanelContainer/MarginContainer" unique_id=1067584493]
+[node name="HistoryContainer" type="VBoxContainer" parent="Control/Paint/HistoryContainer/MarginContainer" unique_id=1067584493]
 custom_minimum_size = Vector2(286, 175)
 custom_maximum_size = Vector2(286, 175)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 
-[node name="HistoryLabel" type="Label" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer" unique_id=1445892309]
+[node name="HistoryLabel" type="Label" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1445892309]
 layout_mode = 2
 size_flags_vertical = 0
 text = "History"
 label_settings = SubResource("LabelSettings_u6yyk")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer" unique_id=1052417383]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1052417383]
 custom_minimum_size = Vector2(286, 175)
 custom_maximum_size = Vector2(286, 175)
 layout_mode = 2
@@ -532,7 +782,7 @@ theme_override_constants/scrollbar_h_separation = 5
 theme_override_styles/panel = SubResource("StyleBoxFlat_ig73d")
 horizontal_scroll_mode = 0
 
-[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/PanelContainer/MarginContainer/HistoryContainer/ScrollContainer" unique_id=703850047]
+[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer/ScrollContainer" unique_id=703850047]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 150)
 custom_maximum_size = Vector2(260, 150)
@@ -543,6 +793,7 @@ text = ">> Line Drawn in Color
 
 [node name="PaintCursor" type="AnimatedSprite2D" parent="Control/Paint" unique_id=821373705]
 unique_name_in_owner = true
+z_index = 100
 position = Vector2(332, 94)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ig73d")
@@ -552,10 +803,10 @@ script = ExtResource("24_4synp")
 
 [node name="MonsterStats" type="PanelContainer" parent="Control" unique_id=2088591500]
 layout_mode = 0
-offset_left = 985.0
-offset_top = 30.0
-offset_right = 1235.0
-offset_bottom = 359.0
+offset_left = 934.0
+offset_top = 300.0
+offset_right = 1220.0
+offset_bottom = 610.0
 theme = ExtResource("24_2repe")
 script = ExtResource("20_u6yyk")
 
@@ -570,15 +821,6 @@ theme_override_constants/margin_bottom = 10
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("24_2repe")
-
-[node name="MonsterName" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1966901095]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("24_2repe")
-theme_override_font_sizes/normal_font_size = 24
-text = "Monster Name"
-fit_content = true
-horizontal_alignment = 1
 
 [node name="ScareLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1437217994]
 layout_mode = 2
@@ -717,6 +959,7 @@ horizontal_alignment = 2
 
 [node name="SaveButton" type="Button" parent="Control" unique_id=588300591]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(150, 75)
 layout_mode = 0
 offset_left = 1124.0
@@ -745,7 +988,11 @@ bus = &"SFX"
 unique_name_in_owner = true
 stream = ExtResource("33_tarkt")
 
+[node name="Drawing" type="AudioStreamPlayer2D" parent="Audio" unique_id=1534232672]
+unique_name_in_owner = true
+stream = ExtResource("34_mmvdy")
+
 [connection signal="mouse_entered" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_entered"]
 [connection signal="mouse_exited" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_exited"]
-[connection signal="drag_ended" from="Control/Paint/BrushSize" to="Control/Paint" method="_on_brush_size_drag_ended"]
-[connection signal="value_changed" from="Control/Paint/BrushSize" to="Control/Paint" method="_on_brush_size_value_changed"]
+[connection signal="drag_ended" from="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="Control/Paint" method="_on_brush_size_drag_ended"]
+[connection signal="value_changed" from="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="Control/Paint" method="_on_brush_size_value_changed"]

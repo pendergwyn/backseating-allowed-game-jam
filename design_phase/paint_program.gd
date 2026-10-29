@@ -9,12 +9,13 @@ const MIN_STEP: float = 5.0
 @onready var monster : Node2D = %Monster
 @onready var paint_cursor: AnimatedSprite2D = %PaintCursor
 @onready var ui_slider: AudioStreamPlayer2D = %UISlider
+@onready var drawing: AudioStreamPlayer2D = %Drawing
 
 
 var paint_history : Array = []
 var line_width : float = 7.0
 var stroke : Line2D = null
-var line_offset : Vector2 = Vector2(640.0, 325.0)
+var line_offset : Vector2 = Vector2(640.0, 335.0)
 var in_drawable_area : bool = false
 
 func _ready() -> void:
@@ -41,6 +42,8 @@ func _input(event: InputEvent) -> void:
 		_undo_action()
 
 func _new_stroke() -> Line2D:
+	
+	
 	var line: Line2D = Line2D.new()
 	line.width = line_width
 	line.default_color = color_palette.current_color
@@ -99,3 +102,7 @@ func _on_brush_size_value_changed(value: float) -> void:
 func _play_slider_audio() -> void:
 	ui_slider.play()
 	ui_slider.pitch_scale = randf_range(0.6, 1.4)
+
+func _play_drawing_sound() -> void:
+	drawing.play()
+	drawing.pitch_scale = randf_range(0.4, 1.6)
