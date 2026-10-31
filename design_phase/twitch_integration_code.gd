@@ -33,7 +33,7 @@ func subscribe_to_events() -> void:
 		&"user_id": user.id
 	})
 
-func _on_request(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
+func _on_request(_from_username: String, _info: TwitchCommandInfo, _args: PackedStringArray) -> void:
 	print("works!")
 
 func _invalid_permission() -> void:

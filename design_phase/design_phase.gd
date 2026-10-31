@@ -53,7 +53,7 @@ func _ready() -> void:
 	request_command.command_received.connect(_on_request)
 	join_command.command_received.connect(_on_join)
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	request_list.text = str(request_deck)	
 	label.text = "Currently Editing: " + str(State.keys()[current_state])
 	
@@ -110,7 +110,7 @@ func _legs_button_pressed() -> void:
 	current_state = State.LEGS
 
 
-func _on_request(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
+func _on_request(_from_username: String, _info: TwitchCommandInfo, _args: PackedStringArray) -> void:
 	chat_suggestions_feed.message_text = _args
 	chat_suggestions_feed.from_user = _from_username
 	SignalBus.new_suggestion_added.emit()
@@ -118,7 +118,7 @@ func _on_request(_from_username: String, info: TwitchCommandInfo, _args: PackedS
 	request_dictionary[_args] = _from_username
 	print("Requests: " + str(request_dictionary))
 
-func _on_join(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
+func _on_join(_from_username: String, _info: TwitchCommandInfo, _args: PackedStringArray) -> void:
 	var new_character = chat_character.instantiate()
 	var random_x : float = randf_range(32.0, 1248.0)
 	new_character.position = Vector2(random_x, 688)

@@ -3,9 +3,6 @@ class_name ColorPallette
 
 @onready var selected_color : ColorRect = %SelectedColor
 
-@onready var white_color: TextureRect = %WhiteColor
-@onready var black_color: TextureRect = %BlackColor
-
 var current_color : Color = Color.WHITE
 
 func _ready() -> void:

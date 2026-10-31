@@ -21,3 +21,7 @@ offset_right = 44.0
 offset_bottom = -33.0
 text = "[username]"
 label_settings = SubResource("LabelSettings_rb87g")
+
+[node name="Timer" type="Timer" parent="." unique_id=733570179]
+unique_name_in_owner = true
+wait_time = 3.0
