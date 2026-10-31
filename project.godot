@@ -19,11 +19,13 @@ config/icon="res://icon.svg"
 
 PlayerStats="*uid://borosjgq5huf1"
 GameController="*uid://ufknihag2hma"
+SignalBus="*uid://bpibp77h5ywad"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

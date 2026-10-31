@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://2wisxmsnefvu"]
+
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_as4pa"]
+[ext_resource type="Script" uid="uid://8fw2u4jqto0c" path="res://design_phase/chat_suggestions_feed.gd" id="2_1rafd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whd7v"]
+
+[node name="ChatSuggestionsFeed" type="PanelContainer" unique_id=1014030356]
+custom_minimum_size = Vector2(300, 600)
+custom_maximum_size = Vector2(300, 600)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_as4pa")
+script = ExtResource("2_1rafd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=656670910]
+custom_maximum_size = Vector2(280, -1)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer" unique_id=2007509262]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_whd7v")
+horizontal_scroll_mode = 0
+
+[node name="SuggestionsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1994860087]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 1000)
+custom_maximum_size = Vector2(280, -1)
+layout_mode = 2

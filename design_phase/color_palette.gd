@@ -19,3 +19,4 @@ func _color_change(event: InputEvent, new_color) -> void:
 	if event.is_action_pressed("left_mouse"):
 		current_color = new_color
 		selected_color.color = current_color
+		SignalBus.new_color_chosen.emit()

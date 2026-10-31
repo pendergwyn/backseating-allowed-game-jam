@@ -24,8 +24,17 @@ var current_state : State = State.ANTENNA
 @onready var monster_design : Node2D = %Monster
 @onready var subviewport : SubViewport = %SubViewport
 @onready var ui_click: AudioStreamPlayer2D = %UIClick
+@onready var chat_instructions: PanelContainer = %ChatInstructions
+@onready var chat_suggestions_feed: ChatSuggestionsFeed = %ChatSuggestionsFeed
+@onready var suggestions_feed_and_button_container: VBoxContainer = %SuggestionsFeedAndButtonContainer
+@onready var game_intro: Control = %GameIntro
+@onready var prompt_cards: HBoxContainer = %PromptCards
+@onready var join_command: TwitchCommand = %JoinCommand
 
+var chat_suggestion_card : PackedScene = preload("res://design_phase/chat_suggested_card.tscn")
+var chat_character : PackedScene = preload("res://design_phase/chat_character.tscn")
 var request_deck : Array[PackedStringArray] = []
+var request_dictionary : Dictionary = {}
 var current_part : AnimatedSprite2D
 var total_frames : int
 
@@ -38,8 +47,11 @@ func _ready() -> void:
 	
 	save_button.pressed.connect(_save_button_pressed)
 	
+	SignalBus.new_color_chosen.connect(_play_click_sound)
+	
 	## Twitch Signal Connections
 	request_command.command_received.connect(_on_request)
+	join_command.command_received.connect(_on_join)
 
 func _process(delta) -> void:
 	request_list.text = str(request_deck)	
@@ -97,9 +109,87 @@ func _legs_button_pressed() -> void:
 	_play_click_sound()
 	current_state = State.LEGS
 
+
 func _on_request(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
-	request_deck.append(_args)
-	print("Request Submitted: " + str(_args))
+	chat_suggestions_feed.message_text = _args
+	chat_suggestions_feed.from_user = _from_username
+	SignalBus.new_suggestion_added.emit()
+	
+	request_dictionary[_args] = _from_username
+	print("Requests: " + str(request_dictionary))
+
+func _on_join(_from_username: String, info: TwitchCommandInfo, _args: PackedStringArray) -> void:
+	var new_character = chat_character.instantiate()
+	var random_x : float = randf_range(32.0, 1248.0)
+	new_character.position = Vector2(random_x, 688)
+	add_child(new_character)
+	new_character.label.text = _from_username
 
 func _play_click_sound() -> void:
 	ui_click.play()
+
+
+func _on_got_it_pressed() -> void:
+	# Hide Introduction Nodes and Button
+	_slide_down()
+	# Show Pregame Slides
+	# Tween Slides in. Instructions slide in from left. Chat request sldie in from right.
+	
+
+func _slide_from_left(target) -> void:
+	var tween : Tween
+	var target_position: float = 0.0
+	var duration : float = 0.75
+	
+	if tween : tween.kill()
+	
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
+
+func _slide_from_right(target) -> void:
+	var tween : Tween
+	var target_position: float = 0.0
+	var duration : float = 0.75
+	
+	if tween : tween.kill()
+	
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
+
+func _slide_down() -> void:
+	var tween : Tween
+	
+	var target_position: float = 750.0
+	var duration : float =  0.75
+	
+	if tween : tween.kill()
+	
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(game_intro, "position:y", target_position, duration)
+	
+	tween.finished.connect(func() -> void:
+		_slide_from_left(chat_instructions)
+		_slide_from_right(suggestions_feed_and_button_container)
+	)
+
+
+func _on_shuffle_requests_pressed() -> void:
+	var chosen_entries : Array = []
+	var available_card_prompts : int = 3
+	
+	for prompt in available_card_prompts:
+		var submission : PackedStringArray
+		var user : String
+		submission = request_dictionary.keys().pick_random()
+		user = request_dictionary[submission]
+		chosen_entries.append([submission, user])
+	
+		var new_card : ChatSuggestedCard = chat_suggestion_card.instantiate()
+		prompt_cards.add_child(new_card)
+		new_card.set_details("".join(submission), user)
+		
+		
+	print("Chosen Entries: " + str(chosen_entries))

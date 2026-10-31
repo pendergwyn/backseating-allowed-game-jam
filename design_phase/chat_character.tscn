@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cfgo4wd5rjmmq"]
+
+[ext_resource type="Texture2D" uid="uid://80pfik7010o3" path="res://assets/chat_characters/chat_candy_corn_character.png" id="1_37ann"]
+[ext_resource type="Script" uid="uid://b8rikfjyn5ync" path="res://design_phase/chat_character.gd" id="1_r7egi"]
+[ext_resource type="FontFile" uid="uid://dg4i4mg30ljh7" path="res://assets/fonts/PeaberryBase.ttf" id="2_ef8lp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rb87g"]
+font = ExtResource("2_ef8lp")
+
+[node name="ChatCharacter" type="Node2D" unique_id=218703862]
+script = ExtResource("1_r7egi")
+
+[node name="ChatCharacterSprite" type="Sprite2D" parent="." unique_id=1667472215]
+texture = ExtResource("1_37ann")
+
+[node name="Label" type="Label" parent="." unique_id=320257679]
+unique_name_in_owner = true
+offset_left = -46.0
+offset_top = -56.0
+offset_right = 44.0
+offset_bottom = -33.0
+text = "[username]"
+label_settings = SubResource("LabelSettings_rb87g")

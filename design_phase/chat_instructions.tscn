@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://q1sn0tntj26g"]
+
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_fxmxl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whd7v"]
+
+[node name="ChatInstructions" type="PanelContainer" unique_id=609939101]
+custom_minimum_size = Vector2(750, 379)
+custom_maximum_size = Vector2(750, 379)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fxmxl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1410346467]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1804186008]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whd7v")
+bbcode_enabled = true
+text = "[color=\"orange\"]Chat:[/color]
+
+We need to come up with the perfect disguise for our cryptids!
+
+Make suggestions by entering the [color=\"orange\"]!request[/color] command in the Twitch chat. How these prompts will be used is up to the interpretation of our Streamer.
+
+Prompts must not contain spaces. Be creative! Use hyphens to string words together. (ex: \"three-eyes\", \"sharp-fangs\", etc.)
+
+[color=\"orange\"]Streamer:[/color]
+
+Once you're satisfied with the number of entered requests. Press the Shuffle Prompts button, to start the game. All submitted prompts will be shuffled into a deck, and a random selection will be chosen for you to follow!
+"
+fit_content = true
