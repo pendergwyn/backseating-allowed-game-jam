@@ -36,6 +36,6 @@ Prompts must not contain spaces. Be creative! Use hyphens to string words togeth
 
 [color=\"orange\"]Streamer:[/color]
 
-Once you're satisfied with the number of entered requests. Press the Shuffle Prompts button, to start the game. All submitted prompts will be shuffled into a deck, and a random selection will be chosen for you to follow!
+Once you're satisfied with the number of entered requests. Press the [color=\"orange\"]Build Deck[/color] button, to start the game. All submitted prompts will be shuffled into a deck, and a random selection will be chosen for you to follow!
 "
 fit_content = true

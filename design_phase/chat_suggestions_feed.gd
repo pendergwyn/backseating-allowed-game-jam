@@ -10,6 +10,12 @@ var from_user : String
 func _ready() -> void:
 	SignalBus.new_suggestion_added.connect(_add_suggestion.bind())
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("right_mouse"):
+		message_text = (["submission"])
+		from_user = "pendergwyn"
+		_add_suggestion()
+
 func _add_suggestion() -> void:
 		print("Running")
 		var new_entry = suggestion_label.instantiate()

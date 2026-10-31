@@ -6,8 +6,8 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whd7v"]
 
 [node name="ChatSuggestionsFeed" type="PanelContainer" unique_id=1014030356]
-custom_minimum_size = Vector2(300, 600)
-custom_maximum_size = Vector2(300, 600)
+custom_minimum_size = Vector2(300, 300)
+custom_maximum_size = Vector2(300, 300)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,6 +31,6 @@ horizontal_scroll_mode = 0
 
 [node name="SuggestionsContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer" unique_id=1994860087]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 1000)
+custom_minimum_size = Vector2(280, 264)
 custom_maximum_size = Vector2(280, -1)
 layout_mode = 2

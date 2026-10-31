@@ -30,9 +30,12 @@ var current_state : State = State.ANTENNA
 @onready var game_intro: Control = %GameIntro
 @onready var prompt_cards: HBoxContainer = %PromptCards
 @onready var join_command: TwitchCommand = %JoinCommand
+@onready var shuffle_requests: Button = %ShuffleRequests
+@onready var ui_container: Control = %UIContainer
 
 var chat_suggestion_card : PackedScene = preload("res://design_phase/chat_suggested_card.tscn")
 var chat_character : PackedScene = preload("res://design_phase/chat_character.tscn")
+var deck_shuffle : PackedScene = preload("res://design_phase/deck_shuffling_animation.tscn")
 var request_deck : Array[PackedStringArray] = []
 var request_dictionary : Dictionary = {}
 var current_part : AnimatedSprite2D
@@ -116,6 +119,8 @@ func _on_request(_from_username: String, _info: TwitchCommandInfo, _args: Packed
 	SignalBus.new_suggestion_added.emit()
 	
 	request_dictionary[_args] = _from_username
+	if request_dictionary.size() >= 5 and shuffle_requests.disabled == true:
+		shuffle_requests.disabled = false
 	print("Requests: " + str(request_dictionary))
 
 func _on_join(_from_username: String, _info: TwitchCommandInfo, _args: PackedStringArray) -> void:
@@ -130,10 +135,9 @@ func _play_click_sound() -> void:
 
 
 func _on_got_it_pressed() -> void:
-	# Hide Introduction Nodes and Button
 	_slide_down()
-	# Show Pregame Slides
-	# Tween Slides in. Instructions slide in from left. Chat request sldie in from right.
+	_play_click_sound()
+	
 	
 
 func _slide_from_left(target) -> void:
@@ -144,7 +148,7 @@ func _slide_from_left(target) -> void:
 	if tween : tween.kill()
 	
 	tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
 
 func _slide_from_right(target) -> void:
@@ -155,7 +159,7 @@ func _slide_from_right(target) -> void:
 	if tween : tween.kill()
 	
 	tween = create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
 
 func _slide_down() -> void:
@@ -177,19 +181,28 @@ func _slide_down() -> void:
 
 
 func _on_shuffle_requests_pressed() -> void:
-	var chosen_entries : Array = []
-	var available_card_prompts : int = 3
+	_play_click_sound()
 	
-	for prompt in available_card_prompts:
-		var submission : PackedStringArray
-		var user : String
-		submission = request_dictionary.keys().pick_random()
-		user = request_dictionary[submission]
-		chosen_entries.append([submission, user])
+	var shuffle = deck_shuffle.instantiate()
+	ui_container.add_child(shuffle)
 	
-		var new_card : ChatSuggestedCard = chat_suggestion_card.instantiate()
-		prompt_cards.add_child(new_card)
-		new_card.set_details("".join(submission), user)
-		
-		
-	print("Chosen Entries: " + str(chosen_entries))
+	shuffle.spawn_cards(request_dictionary)
+	
+	#var chosen_entries : Array = []
+	#var available_card_prompts : int = 3
+	#
+	#for prompt in available_card_prompts:
+		#var submission : PackedStringArray
+		#var user : String
+		#submission = request_dictionary.keys().pick_random()
+		#user = request_dictionary[submission]
+		#chosen_entries.append([submission, user])
+		#request_dictionary.erase(submission)
+	#
+		#var new_card : ChatSuggestedCard = chat_suggestion_card.instantiate()
+		#prompt_cards.add_child(new_card)
+		#new_card.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN + Control.SIZE_EXPAND
+		#new_card.set_details("".join(submission), user)
+		#
+		#
+	#print("Chosen Entries: " + str(chosen_entries))

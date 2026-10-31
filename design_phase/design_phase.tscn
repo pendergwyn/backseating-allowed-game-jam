@@ -474,17 +474,20 @@ sprite_frames = SubResource("SpriteFrames_7o74c")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_mwrns")
 
-[node name="Control" type="Control" parent="." unique_id=1283857538]
+[node name="UIContainer" type="Control" parent="." unique_id=1283857538]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BodyPartSelector" type="VBoxContainer" parent="Control" unique_id=199241138]
+[node name="BodyPartSelector" type="VBoxContainer" parent="UIContainer" unique_id=199241138]
 visible = false
 layout_mode = 1
 anchors_preset = 4
@@ -497,31 +500,31 @@ offset_bottom = 322.0
 grow_vertical = 2
 script = ExtResource("20_4k2a6")
 
-[node name="AntennaContainer" parent="Control/BodyPartSelector" unique_id=728489508 instance=ExtResource("20_ino24")]
+[node name="AntennaContainer" parent="UIContainer/BodyPartSelector" unique_id=728489508 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Antenna"
 parts = ExtResource("22_xbevf")
 
-[node name="BodyContainer" parent="Control/BodyPartSelector" unique_id=1400211009 instance=ExtResource("20_ino24")]
+[node name="BodyContainer" parent="UIContainer/BodyPartSelector" unique_id=1400211009 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Body"
 parts = ExtResource("23_u5kha")
 
-[node name="ArmsContainer" parent="Control/BodyPartSelector" unique_id=1321480009 instance=ExtResource("20_ino24")]
+[node name="ArmsContainer" parent="UIContainer/BodyPartSelector" unique_id=1321480009 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Arms"
 parts = ExtResource("24_3ex0s")
 
-[node name="FeetContainer" parent="Control/BodyPartSelector" unique_id=2128900487 instance=ExtResource("20_ino24")]
+[node name="FeetContainer" parent="UIContainer/BodyPartSelector" unique_id=2128900487 instance=ExtResource("20_ino24")]
 unique_name_in_owner = true
 layout_mode = 2
 body_type = "Legs"
 parts = ExtResource("25_0i46e")
 
-[node name="AntennaButton" type="Button" parent="Control/BodyPartSelector" unique_id=525173539]
+[node name="AntennaButton" type="Button" parent="UIContainer/BodyPartSelector" unique_id=525173539]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(240, 75)
@@ -529,7 +532,7 @@ layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Antenna"
 
-[node name="BodyButton" type="Button" parent="Control/BodyPartSelector" unique_id=1147911709]
+[node name="BodyButton" type="Button" parent="UIContainer/BodyPartSelector" unique_id=1147911709]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(240, 75)
@@ -537,7 +540,7 @@ layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Body"
 
-[node name="ArmsButton" type="Button" parent="Control/BodyPartSelector" unique_id=1952080581]
+[node name="ArmsButton" type="Button" parent="UIContainer/BodyPartSelector" unique_id=1952080581]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(240, 75)
@@ -545,7 +548,7 @@ layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "Arms"
 
-[node name="LegsButton" type="Button" parent="Control/BodyPartSelector" unique_id=1081249359]
+[node name="LegsButton" type="Button" parent="UIContainer/BodyPartSelector" unique_id=1081249359]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(240, 75)
@@ -554,7 +557,7 @@ theme = ExtResource("24_2repe")
 text = "Legs
 "
 
-[node name="Label" type="Label" parent="Control" unique_id=1273546801]
+[node name="Label" type="Label" parent="UIContainer" unique_id=1273546801]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -570,7 +573,7 @@ text = "Currently Editing: [Part]"
 label_settings = SubResource("LabelSettings_qtpa5")
 horizontal_alignment = 1
 
-[node name="Paint" type="Control" parent="Control" unique_id=1001168213]
+[node name="Paint" type="Control" parent="UIContainer" unique_id=1001168213]
 anchors_preset = 0
 offset_left = -48.0
 offset_top = 80.0
@@ -578,7 +581,7 @@ offset_right = -8.0
 offset_bottom = 120.0
 script = ExtResource("18_kpbe2")
 
-[node name="ColorPaletteContainer" type="PanelContainer" parent="Control/Paint" unique_id=870711631]
+[node name="ColorPaletteContainer" type="PanelContainer" parent="UIContainer/Paint" unique_id=870711631]
 layout_mode = 0
 offset_left = -200.0
 offset_right = 2.0
@@ -586,14 +589,14 @@ offset_bottom = 292.0
 theme = ExtResource("24_2repe")
 theme_override_styles/panel = SubResource("StyleBoxTexture_whd7v")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/ColorPaletteContainer" unique_id=1224440231]
+[node name="MarginContainer" type="MarginContainer" parent="UIContainer/Paint/ColorPaletteContainer" unique_id=1224440231]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer" unique_id=1895855359]
+[node name="PanelContainer" type="PanelContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer" unique_id=1895855359]
 z_index = 50
 custom_minimum_size = Vector2(176, 50)
 custom_maximum_size = Vector2(176, 50)
@@ -601,13 +604,13 @@ layout_mode = 2
 offset_transform_enabled = true
 theme_override_styles/panel = SubResource("StyleBoxTexture_rb87g")
 
-[node name="ColorPalette" type="VBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer" unique_id=260839128]
+[node name="ColorPalette" type="VBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer" unique_id=260839128]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("24_2repe")
 script = ExtResource("18_67c5j")
 
-[node name="SelectedColor" type="ColorRect" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=102874552]
+[node name="SelectedColor" type="ColorRect" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=102874552]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(168, 50)
 custom_maximum_size = Vector2(168, -1)
@@ -615,148 +618,148 @@ layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(4, 0)
 
-[node name="BlueColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=995159701]
+[node name="BlueColorRow" type="HBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=995159701]
 layout_mode = 2
 
-[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=404616693 instance=ExtResource("23_011qy")]
+[node name="PaintColorOption" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=404616693 instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_50s6w")
 color_info = ExtResource("25_qqqk4")
 
-[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=576759954 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption2" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=576759954 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_tiov1")
 color_info = ExtResource("26_km2sx")
 
-[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=402233851 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption3" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=402233851 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_idj71")
 color_info = ExtResource("27_ym6ry")
 
-[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=144630082 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption4" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=144630082 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_1g65x")
 color_info = ExtResource("28_ino24")
 
-[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=1103200157 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption5" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BlueColorRow" unique_id=1103200157 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_h2dtv")
 color_info = ExtResource("29_4k2a6")
 
-[node name="GreenColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1031918381]
+[node name="GreenColorRow" type="HBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1031918381]
 layout_mode = 2
 
-[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=861143699 instance=ExtResource("23_011qy")]
+[node name="PaintColorOption" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=861143699 instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_vkh3f")
 color_info = ExtResource("24_lrk46")
 
-[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=2080154374 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption2" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=2080154374 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_c0jtt")
 color_info = ExtResource("26_nqa1g")
 
-[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1595344496 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption3" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1595344496 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_8evxp")
 color_info = ExtResource("32_yekdt")
 
-[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1906024718 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption4" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1906024718 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_3kr0q")
 color_info = ExtResource("33_xbevf")
 
-[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1690833258 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption5" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/GreenColorRow" unique_id=1690833258 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_uq0c0")
 color_info = ExtResource("34_u5kha")
 
-[node name="RedOrangeColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=151951117]
+[node name="RedOrangeColorRow" type="HBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=151951117]
 layout_mode = 2
 
-[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=1079616326 instance=ExtResource("23_011qy")]
+[node name="PaintColorOption" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=1079616326 instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_vn0v2")
 color_info = ExtResource("35_3ex0s")
 
-[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=513645912 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption2" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=513645912 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_g3xse")
 color_info = ExtResource("36_0i46e")
 
-[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=765633986 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption3" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=765633986 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_us0o3")
 color_info = ExtResource("37_pribx")
 
-[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=776128688 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption4" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=776128688 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_f3wed")
 color_info = ExtResource("38_hha20")
 
-[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=685374787 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption5" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/RedOrangeColorRow" unique_id=685374787 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_oob4j")
 color_info = ExtResource("39_npx36")
 
-[node name="PinkColorRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=284384723]
+[node name="PinkColorRow" type="HBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=284384723]
 layout_mode = 2
 
-[node name="PaintColorOption" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=2019645224 instance=ExtResource("23_011qy")]
+[node name="PaintColorOption" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=2019645224 instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_twifi")
 color_info = ExtResource("40_fryw0")
 
-[node name="PaintColorOption2" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=396786417 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption2" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=396786417 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ovvlw")
 color_info = ExtResource("41_1487g")
 
-[node name="PaintColorOption3" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1959817919 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption3" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1959817919 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_kory7")
 color_info = ExtResource("42_6u4lg")
 
-[node name="PaintColorOption4" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=705134940 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption4" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=705134940 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_04l1b")
 color_info = ExtResource("43_dwllq")
 
-[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1224556923 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption5" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/PinkColorRow" unique_id=1224556923 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_mbwns")
 color_info = ExtResource("44_qnhqe")
 
-[node name="YellowWhiteBlackRow" type="HBoxContainer" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1486036321]
+[node name="YellowWhiteBlackRow" type="HBoxContainer" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=1486036321]
 layout_mode = 2
 
-[node name="PaintColorOption5" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=392596656 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption5" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=392596656 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_u75vb")
 color_info = ExtResource("45_rqw5k")
 
-[node name="PaintColorOption6" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1921136808 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption6" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1921136808 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_hh5sn")
 color_info = ExtResource("46_i2fmc")
 
-[node name="PaintColorOption7" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=809688462 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption7" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=809688462 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_2wnh0")
 color_info = ExtResource("47_li2ps")
 
-[node name="PaintColorOption8" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1198563360 groups=["color_options"] instance=ExtResource("23_011qy")]
+[node name="PaintColorOption8" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/YellowWhiteBlackRow" unique_id=1198563360 groups=["color_options"] instance=ExtResource("23_011qy")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_pma7d")
 color_info = ExtResource("48_kbrqa")
 
-[node name="BrushSizeLabel" type="Label" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=945027173]
+[node name="BrushSizeLabel" type="Label" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=945027173]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Brush Size: 0.0"
 label_settings = SubResource("LabelSettings_67c5j")
 
-[node name="BrushSize" type="HSlider" parent="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=374328381]
+[node name="BrushSize" type="HSlider" parent="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette" unique_id=374328381]
 unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("24_2repe")
@@ -765,7 +768,7 @@ max_value = 32.0
 step = 0.5
 value = 7.0
 
-[node name="HistoryContainer" type="PanelContainer" parent="Control/Paint" unique_id=920278114]
+[node name="HistoryContainer" type="PanelContainer" parent="UIContainer/Paint" unique_id=920278114]
 visible = false
 custom_minimum_size = Vector2(286, 0)
 custom_maximum_size = Vector2(286, -1)
@@ -776,26 +779,26 @@ offset_right = 1271.0
 offset_bottom = 592.0
 theme = ExtResource("24_2repe")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Paint/HistoryContainer" unique_id=1916638425]
+[node name="MarginContainer" type="MarginContainer" parent="UIContainer/Paint/HistoryContainer" unique_id=1916638425]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HistoryContainer" type="VBoxContainer" parent="Control/Paint/HistoryContainer/MarginContainer" unique_id=1067584493]
+[node name="HistoryContainer" type="VBoxContainer" parent="UIContainer/Paint/HistoryContainer/MarginContainer" unique_id=1067584493]
 custom_minimum_size = Vector2(286, 175)
 custom_maximum_size = Vector2(286, 175)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 
-[node name="HistoryLabel" type="Label" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1445892309]
+[node name="HistoryLabel" type="Label" parent="UIContainer/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1445892309]
 layout_mode = 2
 size_flags_vertical = 0
 text = "History"
 label_settings = SubResource("LabelSettings_u6yyk")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1052417383]
+[node name="ScrollContainer" type="ScrollContainer" parent="UIContainer/Paint/HistoryContainer/MarginContainer/HistoryContainer" unique_id=1052417383]
 custom_minimum_size = Vector2(286, 175)
 custom_maximum_size = Vector2(286, 175)
 layout_mode = 2
@@ -803,7 +806,7 @@ theme_override_constants/scrollbar_h_separation = 5
 theme_override_styles/panel = SubResource("StyleBoxFlat_ig73d")
 horizontal_scroll_mode = 0
 
-[node name="HistoryLog" type="RichTextLabel" parent="Control/Paint/HistoryContainer/MarginContainer/HistoryContainer/ScrollContainer" unique_id=703850047]
+[node name="HistoryLog" type="RichTextLabel" parent="UIContainer/Paint/HistoryContainer/MarginContainer/HistoryContainer/ScrollContainer" unique_id=703850047]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(260, 150)
 custom_maximum_size = Vector2(260, 150)
@@ -812,7 +815,7 @@ bbcode_enabled = true
 text = ">> Line Drawn in Color
 >> Line Drawn in Color"
 
-[node name="PaintCursor" type="AnimatedSprite2D" parent="Control/Paint" unique_id=821373705]
+[node name="PaintCursor" type="AnimatedSprite2D" parent="UIContainer/Paint" unique_id=821373705]
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(332, 94)
@@ -822,7 +825,7 @@ frame = 1
 offset = Vector2(12, 10)
 script = ExtResource("24_4synp")
 
-[node name="MonsterStats" type="PanelContainer" parent="Control" unique_id=2088591500]
+[node name="MonsterStats" type="PanelContainer" parent="UIContainer" unique_id=2088591500]
 visible = false
 layout_mode = 0
 offset_left = 934.0
@@ -832,31 +835,31 @@ offset_bottom = 610.0
 theme = ExtResource("24_2repe")
 script = ExtResource("20_u6yyk")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MonsterStats" unique_id=1640992757]
+[node name="MarginContainer" type="MarginContainer" parent="UIContainer/MonsterStats" unique_id=1640992757]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MonsterStats/MarginContainer" unique_id=1509734905]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/MonsterStats/MarginContainer" unique_id=1509734905]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 theme = ExtResource("24_2repe")
 
-[node name="ScareLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1437217994]
+[node name="ScareLabel" type="Label" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=1437217994]
 layout_mode = 2
 text = "Scare"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1048080838]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=1048080838]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1075358493]
+[node name="SkillMeterBackground" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1075358493]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="ScareSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer/SkillMeterBackground" unique_id=663012294]
+[node name="ScareSkillMeter" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer/SkillMeterBackground" unique_id=663012294]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -865,7 +868,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_whd7v")
 
-[node name="ScareIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
+[node name="ScareIncreaseButton" type="Button" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1431984625 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -874,19 +877,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="StealthLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=653159452]
+[node name="StealthLabel" type="Label" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=653159452]
 layout_mode = 2
 text = "Stealth"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1162733613]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=1162733613]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=538219762]
+[node name="SkillMeterBackground" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=538219762]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="StealthSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2/SkillMeterBackground" unique_id=1351611951]
+[node name="StealthSkillMeter" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2/SkillMeterBackground" unique_id=1351611951]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -895,7 +898,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_nqa1g")
 
-[node name="StealthIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
+[node name="StealthIncreaseButton" type="Button" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1998958842 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -904,19 +907,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="SpeedLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=483197171]
+[node name="SpeedLabel" type="Label" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=483197171]
 layout_mode = 2
 text = "Speed"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=770073216]
+[node name="HBoxContainer3" type="HBoxContainer" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=770073216]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1740796963]
+[node name="SkillMeterBackground" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1740796963]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="SpeedSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3/SkillMeterBackground" unique_id=163550613]
+[node name="SpeedSkillMeter" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3/SkillMeterBackground" unique_id=163550613]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -925,7 +928,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_2cilq")
 
-[node name="SpeedIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
+[node name="SpeedIncreaseButton" type="Button" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1454808522 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -934,19 +937,19 @@ size_flags_horizontal = 8
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="StrengthLabel" type="Label" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1056766877]
+[node name="StrengthLabel" type="Label" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=1056766877]
 layout_mode = 2
 text = "Strength"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=495920324]
+[node name="HBoxContainer4" type="HBoxContainer" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=495920324]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="SkillMeterBackground" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1495204593]
+[node name="SkillMeterBackground" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1495204593]
 layout_mode = 2
 texture = ExtResource("22_64krs")
 
-[node name="StrengthSkillMeter" type="TextureRect" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4/SkillMeterBackground" unique_id=629206261]
+[node name="StrengthSkillMeter" type="TextureRect" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4/SkillMeterBackground" unique_id=629206261]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 8.0
@@ -955,7 +958,7 @@ offset_right = 152.0
 offset_bottom = 24.0
 texture = SubResource("AtlasTexture_tarkt")
 
-[node name="StrengthIncreaseButton" type="Button" parent="Control/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
+[node name="StrengthIncreaseButton" type="Button" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=495073803 groups=["skill_buttons"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 custom_maximum_size = Vector2(32, 32)
@@ -963,7 +966,7 @@ layout_mode = 2
 theme = ExtResource("24_2repe")
 text = "+"
 
-[node name="SkillPointLabel" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=679627688]
+[node name="SkillPointLabel" type="RichTextLabel" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=679627688]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
@@ -971,7 +974,7 @@ text = "Points Available: 00"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="ChatsPointsLabel" type="RichTextLabel" parent="Control/MonsterStats/MarginContainer/VBoxContainer" unique_id=1385075010]
+[node name="ChatsPointsLabel" type="RichTextLabel" parent="UIContainer/MonsterStats/MarginContainer/VBoxContainer" unique_id=1385075010]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
@@ -979,7 +982,7 @@ text = "Chat's Points Available: 00"
 fit_content = true
 horizontal_alignment = 2
 
-[node name="SaveButton" type="Button" parent="Control" unique_id=588300591]
+[node name="SaveButton" type="Button" parent="UIContainer" unique_id=588300591]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(150, 75)
@@ -991,17 +994,17 @@ offset_bottom = 696.0
 theme = ExtResource("24_2repe")
 text = "Save Creation"
 
-[node name="GameTitle" type="PanelContainer" parent="Control" unique_id=1322663622]
+[node name="GameTitle" type="PanelContainer" parent="UIContainer" unique_id=1322663622]
 custom_minimum_size = Vector2(1280, 150)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rb87g")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/GameTitle" unique_id=1581275482]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/GameTitle" unique_id=1581275482]
 layout_mode = 2
 
-[node name="GameName" type="RichTextLabel" parent="Control/GameTitle/VBoxContainer" unique_id=1926562016]
+[node name="GameName" type="RichTextLabel" parent="UIContainer/GameTitle/VBoxContainer" unique_id=1926562016]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 64)
@@ -1017,7 +1020,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tagline" type="RichTextLabel" parent="Control/GameTitle/VBoxContainer" unique_id=635076879]
+[node name="Tagline" type="RichTextLabel" parent="UIContainer/GameTitle/VBoxContainer" unique_id=635076879]
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 64)
@@ -1032,7 +1035,7 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PregameSlides" type="Control" parent="Control" unique_id=761892546]
+[node name="PregameSlides" type="Control" parent="UIContainer" unique_id=761892546]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -1041,56 +1044,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/PregameSlides" unique_id=894075918]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIContainer/PregameSlides" unique_id=894075918]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 120.0
-offset_top = 250.0
-offset_right = 1174.0
-offset_bottom = 550.0
+offset_left = -527.0
+offset_top = -189.5
+offset_right = 527.0
+offset_bottom = 189.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChatInstructions" parent="Control/PregameSlides/HBoxContainer" unique_id=609939101 instance=ExtResource("63_hha20")]
+[node name="ChatInstructions" parent="UIContainer/PregameSlides/HBoxContainer" unique_id=609939101 instance=ExtResource("63_hha20")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 offset_transform_enabled = true
 offset_transform_position = Vector2(-900, 0)
 
-[node name="SuggestionsFeedAndButtonContainer" type="VBoxContainer" parent="Control/PregameSlides/HBoxContainer" unique_id=1485017254]
+[node name="SuggestionsFeedAndButtonContainer" type="VBoxContainer" parent="UIContainer/PregameSlides/HBoxContainer" unique_id=1485017254]
 unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(500, 0)
 
-[node name="ChatSuggestionsFeed" parent="Control/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer" unique_id=1014030356 instance=ExtResource("62_0i46e")]
+[node name="ChatSuggestionsFeed" parent="UIContainer/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer" unique_id=1014030356 instance=ExtResource("62_0i46e")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-custom_maximum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 6
 offset_transform_enabled = true
 
-[node name="ShuffleRequests" type="Button" parent="Control/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer" unique_id=87538413]
+[node name="ShuffleRequests" type="Button" parent="UIContainer/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer" unique_id=87538413]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 offset_transform_enabled = true
 theme = ExtResource("24_2repe")
-text = "Shuffle Requests"
+disabled = true
+text = "Build Deck"
 
-[node name="GameIntro" type="Control" parent="Control" unique_id=1220779274]
+[node name="GameIntro" type="Control" parent="UIContainer" unique_id=1220779274]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="GameInstructions" type="PanelContainer" parent="Control/GameIntro" unique_id=1106110775]
+[node name="GameInstructions" type="PanelContainer" parent="UIContainer/GameIntro" unique_id=1106110775]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1102,26 +1104,26 @@ offset_bottom = 442.0
 grow_vertical = 2
 theme = ExtResource("24_2repe")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/GameIntro/GameInstructions" unique_id=787325035]
+[node name="MarginContainer" type="MarginContainer" parent="UIContainer/GameIntro/GameInstructions" unique_id=787325035]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/GameIntro/GameInstructions/MarginContainer" unique_id=294421379]
+[node name="RichTextLabel" type="RichTextLabel" parent="UIContainer/GameIntro/GameInstructions/MarginContainer" unique_id=294421379]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pribx")
 bbcode_enabled = true
 text = "Halloween is over!
 [br]
-As monsters prepare for hibernation, they're in need of carefully crafted disguises! For this we've recruited some of the world's finest to offer suggestions to help these lovable cryptids [color=\"orange\"]hidden[/color]!
+As monsters prepare for hibernation, they're in need of carefully crafted disguises! For this we've recruited some of the world's finest to offer suggestions to help these lovable cryptids stay [color=\"orange\"]hidden[/color]!
 [br]
 Chat! It's up to you to submit outfit ideas! Our resident artist (lookin' at you Streamer) here will cook up something grand. Afterwards, we'll trust you all to judge how they did."
 fit_content = true
 vertical_alignment = 1
 
-[node name="GotIt" type="Button" parent="Control/GameIntro" unique_id=184016961]
+[node name="GotIt" type="Button" parent="UIContainer/GameIntro" unique_id=184016961]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 75)
 custom_maximum_size = Vector2(150, 75)
@@ -1133,13 +1135,21 @@ offset_bottom = 567.0
 theme = ExtResource("24_2repe")
 text = "Got it!"
 
-[node name="PromptCards" type="HBoxContainer" parent="Control" unique_id=870863492]
+[node name="PromptCards" type="HBoxContainer" parent="UIContainer" unique_id=870863492]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 258.0
-offset_top = 336.0
-offset_right = 898.0
-offset_bottom = 411.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -50.0
+offset_right = 400.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 0)
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1937870723]
 unique_name_in_owner = true
@@ -1164,9 +1174,9 @@ stream = ExtResource("33_tarkt")
 unique_name_in_owner = true
 stream = ExtResource("34_mmvdy")
 
-[connection signal="mouse_entered" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_entered"]
-[connection signal="mouse_exited" from="PanelContainer" to="Control/Paint" method="_on_panel_container_mouse_exited"]
-[connection signal="drag_ended" from="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="Control/Paint" method="_on_brush_size_drag_ended"]
-[connection signal="value_changed" from="Control/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="Control/Paint" method="_on_brush_size_value_changed"]
-[connection signal="pressed" from="Control/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer/ShuffleRequests" to="." method="_on_shuffle_requests_pressed"]
-[connection signal="pressed" from="Control/GameIntro/GotIt" to="." method="_on_got_it_pressed"]
+[connection signal="mouse_entered" from="PanelContainer" to="UIContainer/Paint" method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer" to="UIContainer/Paint" method="_on_panel_container_mouse_exited"]
+[connection signal="drag_ended" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_drag_ended"]
+[connection signal="value_changed" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_value_changed"]
+[connection signal="pressed" from="UIContainer/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer/ShuffleRequests" to="." method="_on_shuffle_requests_pressed"]
+[connection signal="pressed" from="UIContainer/GameIntro/GotIt" to="." method="_on_got_it_pressed"]

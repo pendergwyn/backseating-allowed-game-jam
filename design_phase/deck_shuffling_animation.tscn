@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cck34xse5ojvn"]
+
+[ext_resource type="Script" uid="uid://4dyv02pb2cr3" path="res://design_phase/deck_shuffling_animation.gd" id="1_fl4mg"]
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="2_768tg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_768tg"]
+
+[node name="DeckShufflingAnimation" type="Control" unique_id=1003045776]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fl4mg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1616749798]
+custom_minimum_size = Vector2(1280, 720)
+custom_maximum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_768tg")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_768tg")
+follow_focus = true
+horizontal_scroll_mode = 0
+scroll_hint_mode = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="ScrollContainer" unique_id=1979295382]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(798, 620)
+custom_maximum_size = Vector2(1280, -1)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+offset_transform_enabled = true
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
