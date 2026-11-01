@@ -32,6 +32,13 @@ var current_state : State = State.ANTENNA
 @onready var join_command: TwitchCommand = %JoinCommand
 @onready var shuffle_requests: Button = %ShuffleRequests
 @onready var ui_container: Control = %UIContainer
+@onready var game_title: PanelContainer = %GameTitle
+@onready var lets_draw_button: Button = %LetsDrawButton
+@onready var paint: Control = %Paint
+@onready var monster_drawing_panel: PanelContainer = %MonsterDrawingPanel
+@onready var body_part_selector: VBoxContainer = %BodyPartSelector
+@onready var player_hand: Control = %PlayerHand
+@onready var player_hand_container: VBoxContainer = %PlayerHandContainer
 
 var chat_suggestion_card : PackedScene = preload("res://design_phase/chat_suggested_card.tscn")
 var chat_character : PackedScene = preload("res://design_phase/chat_character.tscn")
@@ -40,6 +47,7 @@ var request_deck : Array[PackedStringArray] = []
 var request_dictionary : Dictionary = {}
 var current_part : AnimatedSprite2D
 var total_frames : int
+var deck_build_begin : bool = false
 
 func _ready() -> void:
 	request_list.text = str(request_deck)
@@ -51,6 +59,7 @@ func _ready() -> void:
 	save_button.pressed.connect(_save_button_pressed)
 	
 	SignalBus.new_color_chosen.connect(_play_click_sound)
+	SignalBus.cards_dealt.connect(_start_game)
 	
 	## Twitch Signal Connections
 	request_command.command_received.connect(_on_request)
@@ -119,6 +128,14 @@ func _on_request(_from_username: String, _info: TwitchCommandInfo, _args: Packed
 	SignalBus.new_suggestion_added.emit()
 	
 	request_dictionary[_args] = _from_username
+	
+	# Add User to Game as a Candy Corn
+	var new_character = chat_character.instantiate()
+	var random_x : float = randf_range(32.0, 1248.0)
+	new_character.position = Vector2(random_x, 688)
+	add_child(new_character)
+	new_character.label.text = _from_username
+	
 	if request_dictionary.size() >= 5 and shuffle_requests.disabled == true:
 		shuffle_requests.disabled = false
 	print("Requests: " + str(request_dictionary))
@@ -135,6 +152,7 @@ func _play_click_sound() -> void:
 
 
 func _on_got_it_pressed() -> void:
+	_title_slide_up()
 	_slide_down()
 	_play_click_sound()
 	
@@ -162,6 +180,16 @@ func _slide_from_right(target) -> void:
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
 
+func _title_slide_up() -> void:
+	var tween: Tween
+	var target_position: float = -500.0
+	var duration : float = 0.75
+	
+	if tween: tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(game_title, "position:y", target_position, duration)
+
 func _slide_down() -> void:
 	var tween : Tween
 	
@@ -179,14 +207,79 @@ func _slide_down() -> void:
 		_slide_from_right(suggestions_feed_and_button_container)
 	)
 
-
-func _on_shuffle_requests_pressed() -> void:
-	_play_click_sound()
+func _instructions_slide_left(target) -> void:
+	var tween : Tween
+	var target_position: float = -1000.0
+	var duration : float = 0.75
 	
+	if tween: tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
+
+func _feed_slide_right(target) -> void:
+	var tween : Tween
+	var target_position: float = 1500.0
+	var duration : float = 0.75
+	
+	if tween: tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
+	tween.finished.connect(func() -> void:
+		_deck_building_start()
+	)
+
+func _start_game() -> void:
+	# Slide Out Deck Shuffling Container
+	var cards_in_hand = get_tree().get_nodes_in_group("hand")
+	for card in cards_in_hand:
+		card.reparent(player_hand_container)
+	SignalBus.cards_in_hand.emit()
+	_slide_out(player_hand, 1050.0)
+	# Slide in the following:
+	# Color Palette, Drawing Container, Parts Selector, Tween Chosen Cards to side.
+	_slide_in(paint, Vector2(252.0, 360.0))
+	_slide_in(monster_drawing_panel, Vector2(450.0, 52.0))
+	_slide_in(body_part_selector, Vector2(925.0, 50.0))
+	pass
+
+func _slide_out(target, target_position) -> void:
+	var tween : Tween
+	var duration : float = 0.75
+	if tween : tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(target, "position:x", target_position, duration)
+
+func _slide_in(target, target_position) -> void:
+	var tween : Tween
+	var duration : float = 0.75
+	if tween : tween.kill()
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(target, "position", target_position, duration)
+
+func _deck_building_start() -> void:
 	var shuffle = deck_shuffle.instantiate()
 	ui_container.add_child(shuffle)
 	
 	shuffle.spawn_cards(request_dictionary)
+	print("Requests: " + str(request_dictionary))
+
+func _on_shuffle_requests_pressed() -> void:
+	# Cue the instructions and suggestions feed to slide out of view.
+	_instructions_slide_left(chat_instructions)
+	_feed_slide_right(suggestions_feed_and_button_container)
+	
+	_play_click_sound()
+	
+	#if deck_build_begin == true:
+	#
+		#var shuffle = deck_shuffle.instantiate()
+		#ui_container.add_child(shuffle)
+		#
+		#shuffle.spawn_cards(request_dictionary)
 	
 	#var chosen_entries : Array = []
 	#var available_card_prompts : int = 3

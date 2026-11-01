@@ -38,8 +38,6 @@ func _hop_animation(_direction : int) -> void:
 	var tween : Tween
 	if  tween : tween.kill()
 	
-	print("Height: " + str(height) + " Distance: " + str(distance))
-	
 	tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(self, "position:x", position.x + (_direction * distance), hop_duration)

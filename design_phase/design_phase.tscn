@@ -65,6 +65,7 @@
 [ext_resource type="Resource" uid="uid://ci8pfgkqa113d" path="res://utilities/resources/colors/color_24.tres" id="47_li2ps"]
 [ext_resource type="Resource" uid="uid://cd8roucvhd7iv" path="res://utilities/resources/colors/color_2.tres" id="48_kbrqa"]
 [ext_resource type="PackedScene" uid="uid://2wisxmsnefvu" path="res://design_phase/chat_suggestions_feed.tscn" id="62_0i46e"]
+[ext_resource type="Texture2D" uid="uid://brdmyg7ykfiff" path="res://assets/gamelogo/logo.png" id="62_npx36"]
 [ext_resource type="PackedScene" uid="uid://q1sn0tntj26g" path="res://design_phase/chat_instructions.tscn" id="63_hha20"]
 [ext_resource type="FontFile" uid="uid://dg4i4mg30ljh7" path="res://assets/fonts/PeaberryBase.ttf" id="63_pribx"]
 
@@ -446,31 +447,31 @@ bbcode_enabled = true
 text = "Request Array"
 fit_content = true
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1604855503]
-visible = false
+[node name="MonsterDrawingPanel" type="PanelContainer" parent="." unique_id=1604855503]
+unique_name_in_owner = true
 offset_left = 390.0
-offset_top = 10.0
+offset_top = -700.0
 offset_right = 890.0
-offset_bottom = 610.0
+offset_bottom = -100.0
 theme = ExtResource("24_2repe")
 
-[node name="Monster" type="Node2D" parent="PanelContainer" unique_id=1301185639]
+[node name="Monster" type="Node2D" parent="MonsterDrawingPanel" unique_id=1301185639]
 unique_name_in_owner = true
 position = Vector2(250, 325)
 
-[node name="Antenna" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=88876785]
+[node name="Antenna" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=88876785]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_rb87g")
 
-[node name="Body" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=1742635299]
+[node name="Body" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=1742635299]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_whd7v")
 
-[node name="Arms" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=1110047087]
+[node name="Arms" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=1110047087]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_7o74c")
 
-[node name="Legs" type="AnimatedSprite2D" parent="PanelContainer/Monster" unique_id=2145434995]
+[node name="Legs" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=2145434995]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_mwrns")
 
@@ -488,15 +489,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BodyPartSelector" type="VBoxContainer" parent="UIContainer" unique_id=199241138]
-visible = false
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 920.0
-offset_top = 10.0
-offset_right = 1232.0
-offset_bottom = 322.0
+offset_left = 1300.0
+offset_top = -310.0
+offset_right = 1612.0
+offset_bottom = 2.0
 grow_vertical = 2
 script = ExtResource("20_4k2a6")
 
@@ -574,11 +575,12 @@ label_settings = SubResource("LabelSettings_qtpa5")
 horizontal_alignment = 1
 
 [node name="Paint" type="Control" parent="UIContainer" unique_id=1001168213]
+unique_name_in_owner = true
 anchors_preset = 0
-offset_left = -48.0
-offset_top = 80.0
-offset_right = -8.0
-offset_bottom = 120.0
+offset_left = -200.0
+offset_top = 360.0
+offset_right = -160.0
+offset_bottom = 400.0
 script = ExtResource("18_kpbe2")
 
 [node name="ColorPaletteContainer" type="PanelContainer" parent="UIContainer/Paint" unique_id=870711631]
@@ -773,10 +775,10 @@ visible = false
 custom_minimum_size = Vector2(286, 0)
 custom_maximum_size = Vector2(286, -1)
 layout_mode = 0
-offset_left = 985.0
-offset_top = 371.0
-offset_right = 1271.0
-offset_bottom = 592.0
+offset_left = 1970.0
+offset_top = 1038.0
+offset_right = 2256.0
+offset_bottom = 1259.0
 theme = ExtResource("24_2repe")
 
 [node name="MarginContainer" type="MarginContainer" parent="UIContainer/Paint/HistoryContainer" unique_id=1916638425]
@@ -828,10 +830,10 @@ script = ExtResource("24_4synp")
 [node name="MonsterStats" type="PanelContainer" parent="UIContainer" unique_id=2088591500]
 visible = false
 layout_mode = 0
-offset_left = 934.0
-offset_top = 300.0
-offset_right = 1220.0
-offset_bottom = 610.0
+offset_left = 1924.0
+offset_top = 1354.0
+offset_right = 2210.0
+offset_bottom = 1664.0
 theme = ExtResource("24_2repe")
 script = ExtResource("20_u6yyk")
 
@@ -995,35 +997,35 @@ theme = ExtResource("24_2repe")
 text = "Save Creation"
 
 [node name="GameTitle" type="PanelContainer" parent="UIContainer" unique_id=1322663622]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1280, 150)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 400.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_rb87g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/GameTitle" unique_id=1581275482]
+custom_maximum_size = Vector2(-1, 320)
 layout_mode = 2
 
-[node name="GameName" type="RichTextLabel" parent="UIContainer/GameTitle/VBoxContainer" unique_id=1926562016]
+[node name="TextureRect" type="TextureRect" parent="UIContainer/GameTitle/VBoxContainer" unique_id=286470683]
+custom_minimum_size = Vector2(591, 276)
+custom_maximum_size = Vector2(591, 276)
 layout_mode = 2
+size_flags_horizontal = 4
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 64)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.56078434)
-theme_override_constants/shadow_outline_size = 12
-theme_override_constants/shadow_offset_x = 4
-theme_override_constants/shadow_offset_y = 1
-theme_override_fonts/normal_font = ExtResource("63_pribx")
-theme_override_font_sizes/normal_font_size = 80
-bbcode_enabled = true
-text = "Crafty Cryptids!"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_transform_scale = Vector2(0.75, 0.75)
+texture = ExtResource("62_npx36")
+expand_mode = 3
+stretch_mode = 3
 
 [node name="Tagline" type="RichTextLabel" parent="UIContainer/GameTitle/VBoxContainer" unique_id=635076879]
+custom_minimum_size = Vector2(750, 120)
+custom_maximum_size = Vector2(750, 120)
 layout_mode = 2
+size_flags_horizontal = 4
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, 64)
+offset_transform_position = Vector2(0, -32)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.67058825)
 theme_override_constants/shadow_outline_size = 5
 theme_override_constants/shadow_offset_x = 2
@@ -1098,9 +1100,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 304.0
-offset_top = 192.0
+offset_top = 292.0
 offset_right = 1004.0
-offset_bottom = 442.0
+offset_bottom = 542.0
 grow_vertical = 2
 theme = ExtResource("24_2repe")
 
@@ -1129,9 +1131,9 @@ custom_minimum_size = Vector2(150, 75)
 custom_maximum_size = Vector2(150, 75)
 layout_mode = 1
 offset_left = 578.0
-offset_top = 492.0
+offset_top = 592.0
 offset_right = 728.0
-offset_bottom = 567.0
+offset_bottom = 667.0
 theme = ExtResource("24_2repe")
 text = "Got it!"
 
@@ -1150,6 +1152,20 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(400, 0)
+
+[node name="PlayerHand" type="Control" parent="UIContainer" unique_id=1956908222]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 1300.0
+offset_top = 354.0
+offset_right = 1340.0
+offset_bottom = 394.0
+
+[node name="PlayerHandContainer" type="VBoxContainer" parent="UIContainer/PlayerHand" unique_id=718067803]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1937870723]
 unique_name_in_owner = true
@@ -1174,8 +1190,8 @@ stream = ExtResource("33_tarkt")
 unique_name_in_owner = true
 stream = ExtResource("34_mmvdy")
 
-[connection signal="mouse_entered" from="PanelContainer" to="UIContainer/Paint" method="_on_panel_container_mouse_entered"]
-[connection signal="mouse_exited" from="PanelContainer" to="UIContainer/Paint" method="_on_panel_container_mouse_exited"]
+[connection signal="mouse_entered" from="MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_exited"]
 [connection signal="drag_ended" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_drag_ended"]
 [connection signal="value_changed" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_value_changed"]
 [connection signal="pressed" from="UIContainer/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer/ShuffleRequests" to="." method="_on_shuffle_requests_pressed"]

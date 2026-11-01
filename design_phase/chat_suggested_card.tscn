@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_tcnjv"]
 [ext_resource type="Script" uid="uid://dy2y72n11wi10" path="res://design_phase/chat_suggested_card.gd" id="1_yix8x"]
 [ext_resource type="Texture2D" uid="uid://v182at7jukj3" path="res://assets/ui/container_chat_cards.png" id="2_ya5f0"]
+[ext_resource type="AudioStream" uid="uid://ci4h31wddwm8g" path="res://audio/sfx/card-slide-2.ogg" id="4_vvsqp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcnjv"]
 texture = ExtResource("2_ya5f0")
@@ -216,6 +217,10 @@ vertical_alignment = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=489659488]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_cherd")
+
+[node name="CardPlaced" type="AudioStreamPlayer" parent="." unique_id=1624117524]
+unique_name_in_owner = true
+stream = ExtResource("4_vvsqp")
 
 [connection signal="gui_input" from="CardFront" to="." method="_on_card_front_gui_input"]
 [connection signal="gui_input" from="CardBack" to="." method="_on_card_back_gui_input"]

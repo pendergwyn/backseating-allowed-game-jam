@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://4dyv02pb2cr3" path="res://design_phase/deck_shuffling_animation.gd" id="1_fl4mg"]
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="2_768tg"]
+[ext_resource type="AudioStream" uid="uid://bljuc4dcrp4gj" path="res://audio/sfx/card-place-2.ogg" id="3_wf4o6"]
+[ext_resource type="AudioStream" uid="uid://cepix2u5ni7yq" path="res://audio/sfx/card-shuffle.ogg" id="4_tepmb"]
+[ext_resource type="AudioStream" uid="uid://fkri8und1o8" path="res://audio/sfx/card-fan-2.ogg" id="4_wf4o6"]
+[ext_resource type="AudioStream" uid="uid://ci4h31wddwm8g" path="res://audio/sfx/card-slide-2.ogg" id="5_tepmb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_768tg"]
 
@@ -45,3 +49,19 @@ size_flags_vertical = 6
 offset_transform_enabled = true
 theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
+
+[node name="CardShuffle" type="AudioStreamPlayer" parent="." unique_id=1585717574]
+unique_name_in_owner = true
+stream = ExtResource("4_tepmb")
+
+[node name="CardConverge" type="AudioStreamPlayer" parent="." unique_id=137746394]
+unique_name_in_owner = true
+stream = ExtResource("4_wf4o6")
+
+[node name="CardDealt" type="AudioStreamPlayer" parent="." unique_id=646468232]
+unique_name_in_owner = true
+stream = ExtResource("5_tepmb")
+
+[node name="CardFlipped" type="AudioStreamPlayer" parent="." unique_id=1358085225]
+unique_name_in_owner = true
+stream = ExtResource("3_wf4o6")

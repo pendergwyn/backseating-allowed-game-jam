@@ -13,6 +13,8 @@ var current_state : State = State.FACE_UP
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 @onready var card_back: PanelContainer = %CardBack
 @onready var card_front: PanelContainer = %CardFront
+@onready var card_placed: AudioStreamPlayer = %CardPlaced
+
 
 var tween : Tween
 var starting_position: Vector2
@@ -29,7 +31,6 @@ func _ready() -> void:
 	card_front.mouse_exited.connect(_mouse_exited)
 	card_back.mouse_entered.connect(_mouse_hover)
 	card_back.mouse_exited.connect(_mouse_exited)
-	print("start pos: " + str(starting_position))
 	
 	_enter_tween()
 
@@ -43,11 +44,11 @@ func _process(delta: float) -> void:
 			card_back.visible = true
 
 func _mouse_hover() -> void:
-	_floating_tween()
+	#_floating_tween()
 	print("hover")
 
 func _mouse_exited() -> void:
-	_stop_floating_tween()
+	#_stop_floating_tween()
 	print("exit")
 
 func _enter_tween() -> void:
@@ -58,7 +59,10 @@ func _enter_tween() -> void:
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
 	tween.tween_property(self, "offset_transform_position", target, flight_duration)
-	
+	tween.finished.connect(func() -> void:
+		card_placed.pitch_scale = randf_range(0.8, 1.0)
+		card_placed.play()
+	)
 
 func _floating_tween() -> void:
 	# Floating Tween
@@ -81,8 +85,8 @@ func _stop_floating_tween() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position:y", starting_position.y, tween_duration)
 
-func set_details(submission: String, twitch_name: String) -> void:
-	suggestion.text = "'" + submission + "'"
+func set_details(submission: PackedStringArray, twitch_name: String) -> void:
+	suggestion.text = "'" + "".join(submission) + "'"
 	username.text = "from: " + twitch_name
 
 func combine_into_deck() -> void:
@@ -103,17 +107,19 @@ func shuffle() -> void:
 	
 
 func _on_card_back_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		
-		animation_player.play("card_flip")
-		current_state = State.FACE_UP
-		card_front.mouse_filter = Control.MOUSE_FILTER_STOP
-		card_back.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	pass
+	#if event.is_action_pressed("left_mouse"):
+		#
+		#animation_player.play("card_flip")
+		#current_state = State.FACE_UP
+		#card_front.mouse_filter = Control.MOUSE_FILTER_STOP
+		#card_back.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 func _on_card_front_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_mouse"):
-		
-		animation_player.play_backwards("card_flip_front")
-		current_state = State.FACE_DOWN
-		card_front.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		card_back.mouse_filter = Control.MOUSE_FILTER_STOP
+	pass
+	#if event.is_action_pressed("left_mouse"):
+		#
+		#animation_player.play_backwards("card_flip_front")
+		#current_state = State.FACE_DOWN
+		#card_front.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		#card_back.mouse_filter = Control.MOUSE_FILTER_STOP
