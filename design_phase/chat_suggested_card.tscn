@@ -94,10 +94,51 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0.01, 1), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_cherd"]
+resource_name = "card_flip_front"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.29974735),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.01, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CardFront:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CardBack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cherd"]
 _data = {
 &"RESET": SubResource("Animation_yix8x"),
-&"card_flip": SubResource("Animation_vvsqp")
+&"card_flip": SubResource("Animation_vvsqp"),
+&"card_flip_front": SubResource("Animation_cherd")
 }
 
 [node name="ChatSuggestedCard" type="Control" unique_id=578807573]
@@ -114,6 +155,7 @@ mouse_filter = 2
 script = ExtResource("1_yix8x")
 
 [node name="CardFront" type="PanelContainer" parent="." unique_id=1760558769]
+unique_name_in_owner = true
 visible = false
 z_index = 5
 custom_minimum_size = Vector2(250, 100)
@@ -122,11 +164,13 @@ layout_mode = 0
 offset_right = 250.0
 offset_bottom = 100.0
 mouse_filter = 2
+mouse_behavior_recursive = 2
 theme = ExtResource("1_tcnjv")
 theme_override_styles/panel = SubResource("StyleBoxTexture_tcnjv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardFront" unique_id=696557340]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Suggestion" type="RichTextLabel" parent="CardFront/VBoxContainer" unique_id=2113302083]
 unique_name_in_owner = true
@@ -173,4 +217,5 @@ vertical_alignment = 1
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_cherd")
 
+[connection signal="gui_input" from="CardFront" to="." method="_on_card_front_gui_input"]
 [connection signal="gui_input" from="CardBack" to="." method="_on_card_back_gui_input"]
