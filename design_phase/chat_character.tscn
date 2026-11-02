@@ -3,15 +3,54 @@
 [ext_resource type="Texture2D" uid="uid://80pfik7010o3" path="res://assets/chat_characters/chat_candy_corn_character.png" id="1_37ann"]
 [ext_resource type="Script" uid="uid://b8rikfjyn5ync" path="res://design_phase/chat_character.gd" id="1_r7egi"]
 [ext_resource type="FontFile" uid="uid://dg4i4mg30ljh7" path="res://assets/fonts/PeaberryBase.ttf" id="2_ef8lp"]
+[ext_resource type="Texture2D" uid="uid://ch6pp6sqh51yr" path="res://assets/chat_characters/found_hidden_card.png" id="4_2pnhr"]
+[ext_resource type="AudioStream" uid="uid://dc7780pu55igx" path="res://audio/sfx/powerUp2.ogg" id="5_1kw1h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rb87g"]
 font = ExtResource("2_ef8lp")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.69411767)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb87g"]
+size = Vector2(32, 80)
+
+[sub_resource type="Curve" id="Curve_vbceq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7289294, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mwrns"]
+curve = SubResource("Curve_vbceq")
+
+[sub_resource type="Curve" id="Curve_1kw1h"]
+_data = [Vector2(0, 0.11046505), 0.0, 0.0, 0, 0, Vector2(0.19134396, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_whd7v"]
+curve = SubResource("Curve_1kw1h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rb87g"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -96, 0)
+angle_min = -19.99999
+angle_max = 20.000011
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -5, 0)
+scale_min = 0.79999995
+scale_max = 0.79999995
+scale_curve = SubResource("CurveTexture_whd7v")
+alpha_curve = SubResource("CurveTexture_mwrns")
 
 [node name="ChatCharacter" type="Node2D" unique_id=218703862]
 script = ExtResource("1_r7egi")
 
 [node name="ChatCharacterSprite" type="Sprite2D" parent="." unique_id=1667472215]
 texture = ExtResource("1_37ann")
+
+[node name="Disguise" type="Sprite2D" parent="." unique_id=1738479684]
+unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="." unique_id=320257679]
 unique_name_in_owner = true
@@ -25,3 +64,27 @@ label_settings = SubResource("LabelSettings_rb87g")
 [node name="Timer" type="Timer" parent="." unique_id=733570179]
 unique_name_in_owner = true
 wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=491204302]
+unique_name_in_owner = true
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1800438281]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_rb87g")
+
+[node name="NiceFind" type="GPUParticles2D" parent="." unique_id=2099617495]
+unique_name_in_owner = true
+emitting = false
+amount = 1
+texture = ExtResource("4_2pnhr")
+lifetime = 2.0
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_rb87g")
+
+[node name="FoundHiddenCard" type="AudioStreamPlayer" parent="." unique_id=109676310]
+unique_name_in_owner = true
+stream = ExtResource("5_1kw1h")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

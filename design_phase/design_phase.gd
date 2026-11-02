@@ -28,17 +28,21 @@ var current_state : State = State.ANTENNA
 @onready var chat_suggestions_feed: ChatSuggestionsFeed = %ChatSuggestionsFeed
 @onready var suggestions_feed_and_button_container: VBoxContainer = %SuggestionsFeedAndButtonContainer
 @onready var game_intro: Control = %GameIntro
-@onready var prompt_cards: HBoxContainer = %PromptCards
 @onready var join_command: TwitchCommand = %JoinCommand
 @onready var shuffle_requests: Button = %ShuffleRequests
 @onready var ui_container: Control = %UIContainer
 @onready var game_title: PanelContainer = %GameTitle
-@onready var lets_draw_button: Button = %LetsDrawButton
 @onready var paint: Control = %Paint
 @onready var monster_drawing_panel: PanelContainer = %MonsterDrawingPanel
 @onready var body_part_selector: VBoxContainer = %BodyPartSelector
 @onready var player_hand: Control = %PlayerHand
 @onready var player_hand_container: VBoxContainer = %PlayerHandContainer
+@onready var pregame_slides: Control = %PregameSlides
+@onready var mystery_card: Control = %MysteryCard
+@onready var end_screen_panel: GameOverScoring = %EndScreenPanel
+@onready var restart_game_button: Button = %RestartGameButton
+@onready var credits_container: PanelContainer = %CreditsContainer
+@onready var got_it: Button = %GotIt
 
 var chat_suggestion_card : PackedScene = preload("res://design_phase/chat_suggested_card.tscn")
 var chat_character : PackedScene = preload("res://design_phase/chat_character.tscn")
@@ -48,6 +52,7 @@ var request_dictionary : Dictionary = {}
 var current_part : AnimatedSprite2D
 var total_frames : int
 var deck_build_begin : bool = false
+var credits : bool = false
 
 func _ready() -> void:
 	request_list.text = str(request_deck)
@@ -60,6 +65,9 @@ func _ready() -> void:
 	
 	SignalBus.new_color_chosen.connect(_play_click_sound)
 	SignalBus.cards_dealt.connect(_start_game)
+	SignalBus.hidden_card_found.connect(_found_hidden_card)
+	SignalBus.previous_frame.connect(_previous_frame)
+	SignalBus.next_frame.connect(_next_frame)
 	
 	## Twitch Signal Connections
 	request_command.command_received.connect(_on_request)
@@ -105,6 +113,56 @@ func _save_button_pressed() -> void:
 	monster_design.reparent(get_tree().root)
 	monster_design.position = Vector2(640.0, 360.0)
 
+func _previous_frame() -> void:
+	ui_click.play()
+	match GameController.selected_body_type:
+		
+		"Antenna":
+			if antenna.frame == 0:
+				antenna.frame = antenna.sprite_frames.get_frame_count("default")-1
+			else:
+				antenna.frame -= 1
+		"Body":
+			if body.frame == 0:
+				body.frame = body.sprite_frames.get_frame_count("default")-1
+			else:
+				body.frame -= 1
+		"Arms":
+			if arms.frame == 0:
+				arms.frame = arms.sprite_frames.get_frame_count("default")-1
+			else:
+				arms.frame -= 1
+		"Legs":
+			if legs.frame == 0:
+				legs.frame = legs.sprite_frames.get_frame_count("default")-1
+			else:
+				legs.frame -= 1
+
+func _next_frame() -> void:
+	ui_click.play()
+	match GameController.selected_body_type:
+		
+		"Antenna":
+			if antenna.frame == antenna.sprite_frames.get_frame_count("default")-1:
+				antenna.frame = 0
+			else:
+				antenna.frame += 1
+		"Body":
+			if body.frame == body.sprite_frames.get_frame_count("default")-1:
+				body.frame = 0
+			else:
+				body.frame += 1
+		"Arms":
+			if arms.frame == arms.sprite_frames.get_frame_count("default")-1:
+				arms.frame = 0
+			else:
+				arms.frame += 1
+		"Legs":
+			if legs.frame == legs.sprite_frames.get_frame_count("default")-1:
+				legs.frame = 0
+			else:
+				legs.frame += 1
+
 func _antenna_button_pressed() ->  void:
 	_play_click_sound()
 	current_state = State.ANTENNA
@@ -133,6 +191,7 @@ func _on_request(_from_username: String, _info: TwitchCommandInfo, _args: Packed
 	var new_character = chat_character.instantiate()
 	var random_x : float = randf_range(32.0, 1248.0)
 	new_character.position = Vector2(random_x, 688)
+	new_character.add_to_group("audience")
 	add_child(new_character)
 	new_character.label.text = _from_username
 	
@@ -228,7 +287,16 @@ func _feed_slide_right(target) -> void:
 	tween.tween_property(target, "offset_transform_position:x", target_position, duration)
 	tween.finished.connect(func() -> void:
 		_deck_building_start()
+		pregame_slides.position = Vector2(0.0, 1000.0)
 	)
+
+func _found_hidden_card() -> void:
+	var new_card = chat_suggestion_card.instantiate()
+	mystery_card.add_child(new_card)
+	new_card.add_to_group("cards")
+	#new_card.suggestion.text = GameController.secret_card.suggestion
+	#new_card.username.text = GameController.secret_card.username
+	#new_card.current_state = new_card.State.FACE_UP
 
 func _start_game() -> void:
 	# Slide Out Deck Shuffling Container
@@ -236,13 +304,13 @@ func _start_game() -> void:
 	for card in cards_in_hand:
 		card.reparent(player_hand_container)
 	SignalBus.cards_in_hand.emit()
-	_slide_out(player_hand, 1050.0)
+	_slide_out(player_hand, 960.0)
 	# Slide in the following:
 	# Color Palette, Drawing Container, Parts Selector, Tween Chosen Cards to side.
-	_slide_in(paint, Vector2(252.0, 360.0))
-	_slide_in(monster_drawing_panel, Vector2(450.0, 52.0))
+	_slide_in(paint, Vector2(352.0, 360.0))
+	_slide_in(monster_drawing_panel, Vector2(400.0, 52.0))
 	_slide_in(body_part_selector, Vector2(925.0, 50.0))
-	pass
+	_slide_in(mystery_card, Vector2(50.0, 50.0))
 
 func _slide_out(target, target_position) -> void:
 	var tween : Tween
@@ -299,3 +367,34 @@ func _on_shuffle_requests_pressed() -> void:
 		#
 		#
 	#print("Chosen Entries: " + str(chosen_entries))
+
+
+func _on_restart_game_button_pressed() -> void:
+	get_tree().reload_current_scene()
+
+
+
+func _on_button_pressed() -> void:
+	ui_click.play()
+	# Finish Drawing and goto end screen
+	_slide_in(end_screen_panel, Vector2(700.0, 185.0))
+	_slide_in(restart_game_button, Vector2(800.0, 550.0))
+	_slide_in(monster_drawing_panel, Vector2(150.0, 52.0))
+	
+	_slide_out(paint, -1000)
+	_slide_out(mystery_card, -1000)
+	_slide_out(body_part_selector, 1500)
+	_slide_out(player_hand, 1500)
+
+
+func _on_credits_button_pressed() -> void:
+	ui_click.play()
+	if credits == false:
+		_slide_in(credits_container, Vector2(340.0, 150.0))
+		credits = true
+		got_it.disabled = true
+	else:
+		_slide_out(credits_container, -1500)
+		credits = false
+		got_it.disabled = false
+	

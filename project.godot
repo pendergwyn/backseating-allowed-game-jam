@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Backseating-Allowed-Game-Jam"
-run/main_scene="uid://nmp7e1k672fh"
+run/main_scene="uid://tgffnwc4mxo"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c4b601s4vld6o"
 
 [autoload]
 
@@ -25,7 +29,6 @@ SignalBus="*uid://bpibp77h5ywad"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -104,6 +107,7 @@ camera_zoom_out={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
 
 [twitcher]
 

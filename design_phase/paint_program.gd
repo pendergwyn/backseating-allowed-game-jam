@@ -15,7 +15,7 @@ const MIN_STEP: float = 5.0
 var paint_history : Array = []
 var line_width : float = 7.0
 var stroke : Line2D = null
-var line_offset : Vector2 = Vector2(640.0, 335.0)
+var line_offset : Vector2 = Vector2(648.0, 380.0)
 var in_drawable_area : bool = false
 
 func _ready() -> void:

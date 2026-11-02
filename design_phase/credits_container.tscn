@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cavmhijng58q2"]
+
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_8mfpq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rb87g"]
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb87g"]
+
+[node name="CreditsContainer" type="PanelContainer" unique_id=824399645]
+custom_minimum_size = Vector2(600, 350)
+custom_maximum_size = Vector2(600, 350)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -175.0
+offset_right = 300.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8mfpq")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=182431763]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=555573475]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=383821690]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Thank You For Playing!!!"
+label_settings = SubResource("LabelSettings_rb87g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=694801903]
+layout_mode = 2
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 50)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb87g")
+text = "Crafty Crytpids was made for the Backseating Allowed Gamejam 2026!
+
+Game Design, Programming, Art - Gwyn
+
+This was my very first Gamejam and first finished game! I hope you enjoyed your time with it. <3
+"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1868021473]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=503849758]
+layout_mode = 2
+text = "Music by Nathan Cleary: "
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1287099125]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "GreenGreens Forest Pixel Audio Pack"
+uri = "https://nathanclearymusic.itch.io/greengreensforestpixelaudiopack"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1471017201]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=535406706]
+layout_mode = 2
+text = "SFX by Kenny.nl: "
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1096203940]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Kenny Asset Packs"
+uri = "https://kenney.nl/"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1516387115]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=327925258]
+layout_mode = 2
+text = "Color Palette by SurrealEmber:"
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=18627061]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Daifuku Delights 24"
+uri = "https://lospec.com/palette-list/daifuku-delights-24"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=310612464]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1144589841]
+layout_mode = 2
+text = "Font by Emhuo: "
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=245893774]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Peaberry Font"
+uri = "https://emhuo.itch.io/peaberry-pixel-font"

@@ -75,3 +75,6 @@ texture_pressed = SubResource("AtlasTexture_vbceq")
 texture_hover = SubResource("AtlasTexture_wqimu")
 texture_focused = SubResource("AtlasTexture_esy1l")
 flip_h = true
+
+[connection signal="pressed" from="PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

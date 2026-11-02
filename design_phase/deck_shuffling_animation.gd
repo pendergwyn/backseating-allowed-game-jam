@@ -95,6 +95,9 @@ func deal_three_cards() -> void:
 		if card >= 2:
 			await get_tree().create_timer(1.0).timeout
 			GameController.secret_card = all_cards.pick_random()
+			var audience = get_tree().get_nodes_in_group("audience")
+			var pick = audience.pick_random()
+			pick.has_disguise = true
 			print("Secret Card: " + str(GameController.secret_card))
 			reveal_hand()
 
@@ -104,4 +107,5 @@ func reveal_hand() -> void:
 	for card in hand:
 		card.animation_player.play("card_flip")
 		card.current_state = card.State.FACE_UP
+	await get_tree().create_timer(0.75).timeout
 	SignalBus.cards_dealt.emit()

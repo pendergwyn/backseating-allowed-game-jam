@@ -21,3 +21,13 @@ func _ready() -> void:
 func _update_container_details() -> void:
 	if Engine.is_editor_hint():
 		_body_part_name.text = body_type
+
+
+func _on_previous_button_pressed() -> void:
+	GameController.selected_body_type = body_type
+	SignalBus.previous_frame.emit()
+
+
+func _on_next_button_pressed() -> void:
+	GameController.selected_body_type = body_type
+	SignalBus.next_frame.emit()

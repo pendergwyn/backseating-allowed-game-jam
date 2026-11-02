@@ -3,7 +3,9 @@
 [ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_tcnjv"]
 [ext_resource type="Script" uid="uid://dy2y72n11wi10" path="res://design_phase/chat_suggested_card.gd" id="1_yix8x"]
 [ext_resource type="Texture2D" uid="uid://v182at7jukj3" path="res://assets/ui/container_chat_cards.png" id="2_ya5f0"]
+[ext_resource type="Texture2D" uid="uid://b7h2eidmrfdcw" path="res://assets/ui/container_color_palette.png" id="4_dqlyl"]
 [ext_resource type="AudioStream" uid="uid://ci4h31wddwm8g" path="res://audio/sfx/card-slide-2.ogg" id="4_vvsqp"]
+[ext_resource type="Texture2D" uid="uid://brdmyg7ykfiff" path="res://assets/gamelogo/logo.png" id="5_fx7yd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tcnjv"]
 texture = ExtResource("2_ya5f0")
@@ -15,6 +17,13 @@ texture_margin_bottom = 8.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hha20"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_npx36"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb87g"]
+texture = ExtResource("4_dqlyl")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="Animation" id="Animation_yix8x"]
 length = 0.001
@@ -205,14 +214,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_behavior_recursive = 2
 theme = ExtResource("1_tcnjv")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rb87g")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CardBack" unique_id=738867302]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 18
 text = "Crafty Cryptids!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CardBack" unique_id=1750192266]
+layout_mode = 2
+texture = ExtResource("5_fx7yd")
+expand_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=489659488]
 unique_name_in_owner = true

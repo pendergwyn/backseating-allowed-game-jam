@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ddeo8mntx80rl"]
+
+[ext_resource type="Texture2D" uid="uid://cudalg0auaov2" path="res://assets/ui/star_rating.png" id="1_7jm8r"]
+[ext_resource type="Script" uid="uid://b5snid3tx0l3m" path="res://design_phase/star_ratings.gd" id="1_eh1wx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb87g"]
+atlas = ExtResource("1_7jm8r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whd7v"]
+atlas = ExtResource("1_7jm8r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o74c"]
+atlas = ExtResource("1_7jm8r")
+region = Rect2(0, 0, 32, 32)
+
+[node name="StarRatings" type="HBoxContainer" unique_id=1061020417]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -688.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eh1wx")
+
+[node name="StarOne" type="TextureRect" parent="." unique_id=1820806245]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_rb87g")
+
+[node name="StarTwo" type="TextureRect" parent="." unique_id=1654690535]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_whd7v")
+
+[node name="StarThree" type="TextureRect" parent="." unique_id=116571856]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_7o74c")

@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://b0frcf0kcwmoy"]
+
+[ext_resource type="Theme" uid="uid://coa8lsg52fdv4" path="res://assets/ui/ui_theme.tres" id="1_mopma"]
+[ext_resource type="Script" uid="uid://cis7m3vrbccvp" path="res://design_phase/end_screen_panel.gd" id="2_jgep5"]
+[ext_resource type="PackedScene" uid="uid://ddeo8mntx80rl" path="res://design_phase/star_ratings.tscn" id="2_xv22l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb87g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xv22l"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_jgep5"]
+font_size = 32
+
+[node name="EndScreenPanel" type="PanelContainer" unique_id=976581383]
+custom_minimum_size = Vector2(400, 500)
+custom_maximum_size = Vector2(400, 350)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -300.0
+offset_right = -80.0
+offset_bottom = 300.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("1_mopma")
+script = ExtResource("2_jgep5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2048995504]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2147471227]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=84353625]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb87g")
+text = "Scoring!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Prompt1Container" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=632996027]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Prompt1Container" unique_id=60235549]
+layout_mode = 2
+text = "Prompt 1"
+
+[node name="StarRatings1" parent="MarginContainer/VBoxContainer/Prompt1Container" unique_id=1061020417 instance=ExtResource("2_xv22l")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PromptScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1526807394]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer" unique_id=91541155]
+layout_mode = 2
+text = "Score:"
+
+[node name="Prompt1ScoreNumberLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer" unique_id=658772642]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="Prompt2Container" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=331245435]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Prompt2Container" unique_id=104151385]
+layout_mode = 2
+text = "Prompt 2"
+
+[node name="StarRatings2" parent="MarginContainer/VBoxContainer/Prompt2Container" unique_id=825775390 instance=ExtResource("2_xv22l")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PromptScoreContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1443525543]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer2" unique_id=499159136]
+layout_mode = 2
+text = "Score: "
+
+[node name="Prompt2ScoreNumberLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer2" unique_id=1839745999]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="Prompt3Container" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1013229070]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Prompt3Container" unique_id=1893645341]
+layout_mode = 2
+text = "Prompt 3"
+
+[node name="StarRatings3" parent="MarginContainer/VBoxContainer/Prompt3Container" unique_id=1188687029 instance=ExtResource("2_xv22l")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="PromptScoreContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=805823683]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer3" unique_id=353265778]
+layout_mode = 2
+text = "Score: "
+
+[node name="Prompt3ScoreNumberLabel" type="Label" parent="MarginContainer/VBoxContainer/PromptScoreContainer3" unique_id=982031484]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="HiddenPromptContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=261114907]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HiddenPromptContainer" unique_id=1162383050]
+layout_mode = 2
+text = "Hidden Prompt:"
+
+[node name="StarRatings4" parent="MarginContainer/VBoxContainer/HiddenPromptContainer" unique_id=786871723 instance=ExtResource("2_xv22l")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="HiddenScoreContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=378573175]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HiddenScoreContainer" unique_id=562900542]
+layout_mode = 2
+text = "Score: "
+
+[node name="HiddenScoreNumberLabel" type="Label" parent="MarginContainer/VBoxContainer/HiddenScoreContainer" unique_id=489954433]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1999785367]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=51143476]
+layout_mode = 2
+text = "Bonus: "
+
+[node name="BonusScoreNumber" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1585560108]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "000"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=104951644]
+layout_mode = 2
+
+[node name="FinalScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1351213553]
+layout_mode = 2
+text = "Final Score: "
+label_settings = SubResource("LabelSettings_xv22l")
+
+[node name="FinalScoreLabel2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=118114471]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0000"
+label_settings = SubResource("LabelSettings_jgep5")

@@ -68,6 +68,9 @@
 [ext_resource type="Texture2D" uid="uid://brdmyg7ykfiff" path="res://assets/gamelogo/logo.png" id="62_npx36"]
 [ext_resource type="PackedScene" uid="uid://q1sn0tntj26g" path="res://design_phase/chat_instructions.tscn" id="63_hha20"]
 [ext_resource type="FontFile" uid="uid://dg4i4mg30ljh7" path="res://assets/fonts/PeaberryBase.ttf" id="63_pribx"]
+[ext_resource type="PackedScene" uid="uid://b0frcf0kcwmoy" path="res://design_phase/end_screen_panel.tscn" id="66_fryw0"]
+[ext_resource type="PackedScene" uid="uid://cavmhijng58q2" path="res://design_phase/credits_container.tscn" id="67_6u4lg"]
+[ext_resource type="AudioStream" uid="uid://djy0qhp862eyw" path="res://audio/music/GGGrasslandsMusic-FullMix.ogg" id="70_1487g"]
 
 [sub_resource type="Resource" id="Resource_rb87g"]
 script = ExtResource("3_c3fop")
@@ -360,6 +363,8 @@ region = Rect2(0, 0, 144, 16)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pribx"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_whd7v"]
+
 [node name="DesignPhase" type="Node2D" unique_id=1509362831]
 script = ExtResource("1_536p1")
 
@@ -447,36 +452,9 @@ bbcode_enabled = true
 text = "Request Array"
 fit_content = true
 
-[node name="MonsterDrawingPanel" type="PanelContainer" parent="." unique_id=1604855503]
-unique_name_in_owner = true
-offset_left = 390.0
-offset_top = -700.0
-offset_right = 890.0
-offset_bottom = -100.0
-theme = ExtResource("24_2repe")
-
-[node name="Monster" type="Node2D" parent="MonsterDrawingPanel" unique_id=1301185639]
-unique_name_in_owner = true
-position = Vector2(250, 325)
-
-[node name="Antenna" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=88876785]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_rb87g")
-
-[node name="Body" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=1742635299]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_whd7v")
-
-[node name="Arms" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=1110047087]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_7o74c")
-
-[node name="Legs" type="AnimatedSprite2D" parent="MonsterDrawingPanel/Monster" unique_id=2145434995]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_mwrns")
-
 [node name="UIContainer" type="Control" parent="." unique_id=1283857538]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -487,6 +465,36 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MonsterDrawingPanel" type="PanelContainer" parent="UIContainer" unique_id=1604855503]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 14.0
+offset_top = -606.0
+offset_right = 514.0
+offset_bottom = -6.0
+theme = ExtResource("24_2repe")
+
+[node name="Monster" type="Node2D" parent="UIContainer/MonsterDrawingPanel" unique_id=1301185639]
+unique_name_in_owner = true
+position = Vector2(250, 325)
+
+[node name="Antenna" type="AnimatedSprite2D" parent="UIContainer/MonsterDrawingPanel/Monster" unique_id=88876785]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_rb87g")
+
+[node name="Body" type="AnimatedSprite2D" parent="UIContainer/MonsterDrawingPanel/Monster" unique_id=1742635299]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_whd7v")
+
+[node name="Arms" type="AnimatedSprite2D" parent="UIContainer/MonsterDrawingPanel/Monster" unique_id=1110047087]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_7o74c")
+
+[node name="Legs" type="AnimatedSprite2D" parent="UIContainer/MonsterDrawingPanel/Monster" unique_id=2145434995]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_mwrns")
 
 [node name="BodyPartSelector" type="VBoxContainer" parent="UIContainer" unique_id=199241138]
 unique_name_in_owner = true
@@ -827,6 +835,17 @@ frame = 1
 offset = Vector2(12, 10)
 script = ExtResource("24_4synp")
 
+[node name="Button" type="Button" parent="UIContainer/Paint" unique_id=1529671130]
+custom_minimum_size = Vector2(150, 75)
+custom_maximum_size = Vector2(150, 75)
+layout_mode = 0
+offset_left = -174.0
+offset_top = -82.0
+offset_right = -24.0
+offset_bottom = -7.0
+theme = ExtResource("24_2repe")
+text = "Finish Drawing"
+
 [node name="MonsterStats" type="PanelContainer" parent="UIContainer" unique_id=2088591500]
 visible = false
 layout_mode = 0
@@ -1137,21 +1156,17 @@ offset_bottom = 667.0
 theme = ExtResource("24_2repe")
 text = "Got it!"
 
-[node name="PromptCards" type="HBoxContainer" parent="UIContainer" unique_id=870863492]
+[node name="CreditsButton" type="Button" parent="UIContainer/GameIntro" unique_id=1643198119]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -50.0
-offset_right = 400.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(400, 0)
+custom_minimum_size = Vector2(200, 75)
+custom_maximum_size = Vector2(200, 75)
+layout_mode = 0
+offset_left = 1098.0
+offset_top = 628.0
+offset_right = 1248.0
+offset_bottom = 703.0
+theme = ExtResource("24_2repe")
+text = "Open/Close Credits"
 
 [node name="PlayerHand" type="Control" parent="UIContainer" unique_id=1956908222]
 unique_name_in_owner = true
@@ -1166,6 +1181,78 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="MysteryCard" type="Control" parent="UIContainer" unique_id=131681714]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+anchors_preset = 0
+offset_left = -288.0
+offset_top = 32.0
+offset_right = -88.0
+offset_bottom = 72.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/MysteryCard" unique_id=498317160]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIContainer/MysteryCard/VBoxContainer" unique_id=865691314]
+custom_minimum_size = Vector2(200, 0)
+custom_maximum_size = Vector2(200, -1)
+layout_mode = 2
+theme = ExtResource("24_2repe")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3529412)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_whd7v")
+text = "Secret Card:"
+fit_content = true
+
+[node name="EndScreenPanel" parent="UIContainer" unique_id=976581383 instance=ExtResource("66_fryw0")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1500.0
+offset_top = 185.0
+offset_right = 1900.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="RestartGameButton" type="Button" parent="UIContainer" unique_id=883396004]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 75)
+custom_maximum_size = Vector2(200, 125)
+layout_mode = 0
+offset_left = 552.0
+offset_top = 790.0
+offset_right = 752.0
+offset_bottom = 865.0
+theme = ExtResource("24_2repe")
+text = "Restart Game!"
+
+[node name="CreditsContainer" parent="UIContainer" unique_id=824399645 instance=ExtResource("67_6u4lg")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 840.0
+offset_right = 600.0
+offset_bottom = 1190.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1937870723]
 unique_name_in_owner = true
@@ -1190,9 +1277,19 @@ stream = ExtResource("33_tarkt")
 unique_name_in_owner = true
 stream = ExtResource("34_mmvdy")
 
-[connection signal="mouse_entered" from="MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_entered"]
-[connection signal="mouse_exited" from="MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_exited"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=576151089]
+stream = ExtResource("70_1487g")
+volume_db = 1.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="mouse_entered" from="UIContainer/MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_entered"]
+[connection signal="mouse_exited" from="UIContainer/MonsterDrawingPanel" to="UIContainer/Paint" method="_on_panel_container_mouse_exited"]
 [connection signal="drag_ended" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_drag_ended"]
 [connection signal="value_changed" from="UIContainer/Paint/ColorPaletteContainer/MarginContainer/ColorPalette/BrushSize" to="UIContainer/Paint" method="_on_brush_size_value_changed"]
+[connection signal="pressed" from="UIContainer/Paint/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UIContainer/PregameSlides/HBoxContainer/SuggestionsFeedAndButtonContainer/ShuffleRequests" to="." method="_on_shuffle_requests_pressed"]
 [connection signal="pressed" from="UIContainer/GameIntro/GotIt" to="." method="_on_got_it_pressed"]
+[connection signal="pressed" from="UIContainer/GameIntro/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="UIContainer/RestartGameButton" to="." method="_on_restart_game_button_pressed"]
