@@ -1161,18 +1161,18 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 75)
 custom_maximum_size = Vector2(200, 75)
 layout_mode = 0
-offset_left = 1098.0
+offset_left = 1024.0
 offset_top = 628.0
-offset_right = 1248.0
+offset_right = 1224.0
 offset_bottom = 703.0
 theme = ExtResource("24_2repe")
 text = "Open/Close Credits"
 
 [node name="Twitch" parent="UIContainer/GameIntro" unique_id=1726935374 instance=ExtResource("66_dwllq")]
 layout_mode = 0
-offset_left = 72.0
+offset_left = 2000.0
 offset_top = 614.0
-offset_right = 474.0
+offset_right = 2402.0
 offset_bottom = 646.0
 theme = ExtResource("24_2repe")
 
