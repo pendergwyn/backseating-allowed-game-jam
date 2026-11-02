@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://brdmyg7ykfiff" path="res://assets/gamelogo/logo.png" id="62_npx36"]
 [ext_resource type="PackedScene" uid="uid://q1sn0tntj26g" path="res://design_phase/chat_instructions.tscn" id="63_hha20"]
 [ext_resource type="FontFile" uid="uid://dg4i4mg30ljh7" path="res://assets/fonts/PeaberryBase.ttf" id="63_pribx"]
+[ext_resource type="PackedScene" uid="uid://olx32b7dsfbd" path="res://twitch.tscn" id="66_dwllq"]
 [ext_resource type="PackedScene" uid="uid://b0frcf0kcwmoy" path="res://design_phase/end_screen_panel.tscn" id="66_fryw0"]
 [ext_resource type="PackedScene" uid="uid://cavmhijng58q2" path="res://design_phase/credits_container.tscn" id="67_6u4lg"]
 [ext_resource type="AudioStream" uid="uid://djy0qhp862eyw" path="res://audio/music/GGGrasslandsMusic-FullMix.ogg" id="70_1487g"]
@@ -454,7 +455,6 @@ fit_content = true
 
 [node name="UIContainer" type="Control" parent="." unique_id=1283857538]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1167,6 +1167,14 @@ offset_right = 1248.0
 offset_bottom = 703.0
 theme = ExtResource("24_2repe")
 text = "Open/Close Credits"
+
+[node name="Twitch" parent="UIContainer/GameIntro" unique_id=1726935374 instance=ExtResource("66_dwllq")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 614.0
+offset_right = 474.0
+offset_bottom = 646.0
+theme = ExtResource("24_2repe")
 
 [node name="PlayerHand" type="Control" parent="UIContainer" unique_id=1956908222]
 unique_name_in_owner = true

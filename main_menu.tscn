@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://nmp7e1k672fh"]
 
 [ext_resource type="PackedScene" uid="uid://djt5lvmwxbq4a" path="res://addons/twitcher/twitch_service.tscn" id="1_qe12f"]
-[ext_resource type="Script" uid="uid://i8st3lv0lidh" path="res://addons/twitcher/twitch_service.gd" id="2_8qtwp"]
 [ext_resource type="Resource" uid="uid://bnxx1dqdhbr3v" path="res://twitch_oauth_setting.tres" id="3_dy7ct"]
 [ext_resource type="Resource" uid="uid://3dm6ts8hwlys" path="res://addons/twitcher/auth/preset_game_scopes.tres" id="4_0o4t1"]
 [ext_resource type="Resource" uid="uid://djriyyqsdhqr7" path="res://twitch_oauth_token.tres" id="5_0k4wn"]
-[ext_resource type="Script" uid="uid://fmtyexdlsy0x" path="res://addons/twitcher/example/game_template/twitcher_devicecode.gd" id="6_j5v2v"]
-[ext_resource type="Resource" uid="uid://ddrqchmiend4e" path="res://addons/twitcher/example/game_template/game_template_oauth_token.tres" id="7_iotk1"]
+[ext_resource type="PackedScene" uid="uid://olx32b7dsfbd" path="res://twitch.tscn" id="5_glbon"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhtpo"]
 font_size = 40
@@ -21,9 +19,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TwitchService" type="Node" parent="." unique_id=1988848951 instance=ExtResource("1_qe12f")]
+[node name="TwitchService" parent="." unique_id=1988848951 instance=ExtResource("1_qe12f")]
 unique_name_in_owner = true
-script = ExtResource("2_8qtwp")
 oauth_setting = ExtResource("3_dy7ct")
 scopes = ExtResource("4_0o4t1")
 token = ExtResource("5_0k4wn")
@@ -49,21 +46,8 @@ layout_mode = 2
 disabled = true
 text = "Play"
 
-[node name="Twitch" type="HBoxContainer" parent="MainMenu" unique_id=1260255398]
+[node name="Twitch" parent="MainMenu" unique_id=1726935374 instance=ExtResource("5_glbon")]
 layout_mode = 2
-script = ExtResource("6_j5v2v")
-token = ExtResource("7_iotk1")
-
-[node name="ConnectTwitch" type="Button" parent="MainMenu/Twitch" unique_id=1666998617]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Connect Twitch Account"
-
-[node name="TwitchStatus" type="Label" parent="MainMenu/Twitch" unique_id=1201897888]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Status: Disconnected"
 
 [node name="Exit" type="Button" parent="MainMenu" unique_id=1222572742]
 layout_mode = 2
